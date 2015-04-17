@@ -17,9 +17,7 @@ namespace Lis.Test
 
         private const string PatientPath = "Iteration-2/Data/Patient.json";
 
-        //private const string Endpoint = "http://fhir.zdrav.netrika.ru/fhir";
         private const string Endpoint = "http://localhost:50883/fhir";
-        //private const string Endpoint = "http://fhir-demo.zdrav.netrika.ru/fhir";
 
         public FhirClient Client { get; private set; }
 

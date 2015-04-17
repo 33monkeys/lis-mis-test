@@ -13,7 +13,6 @@
 //{
 //    partial class LisOrderScenarios
 //    {
-//        //private const string Endpoint = "http://fhir.zdrav.netrika.ru/fhir";
 //        private const string Endpoint = "http://localhost:50883/fhir";
 
 //        public FhirClient Client { get; private set; }
