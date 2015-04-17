@@ -1,0 +1,14 @@
+﻿{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "entry": [
+        {
+            "resource": {"resourceType": "Device", "patient": {"reference": "0B3538BD-C3FC-414E-BF7E-248A23A58EC5"}},
+            "transaction": {"method": "POST", "url": "Device"}
+        },
+        {
+            "resource": {"resourceType":"Patient", "name":{"text":"Goga"}, "id": "0B3538BD-C3FC-414E-BF7E-248A23A58EC5"},
+            "transaction": {"method": "POST", "url": "Patient"}
+        }
+    ]
+}

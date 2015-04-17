@@ -1,0 +1,8 @@
+﻿{
+    "resourceType": "Organization",
+    "name": "Practitioner organization",
+    "identifier": {
+        "use": "usual",
+        "value": "123456"
+    }
+}

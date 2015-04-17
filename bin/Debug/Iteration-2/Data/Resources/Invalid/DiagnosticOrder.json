@@ -1,0 +1,16 @@
+﻿{
+    "resourceType": "DiagnosticOrder",
+    "status": "received",
+    "item": [
+        {
+            "code": {
+                "coding": [
+                    {
+                        "system": "http://acme.org/tests",
+                        "code": "LIPID"
+                    }
+                ]
+            }
+        }
+    ]
+}

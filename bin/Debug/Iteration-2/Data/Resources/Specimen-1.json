@@ -1,0 +1,27 @@
+﻿{
+    "resourceType": "Specimen",
+    "type": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "122555007",
+                "display": "Venous blood specimen"
+            }
+        ]
+    },
+    "container": [
+        {
+            "identifier": [
+                {
+                    "value": "48736-15394-75465"
+                }
+            ],
+            "type": {
+                "text": "Vacutainer"
+            }
+        }
+    ],
+    "collection": {
+        "collectedDateTime": "2014-12-05"
+    }
+}

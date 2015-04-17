@@ -1,0 +1,27 @@
+﻿{
+    "resourceType": "Condition",
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "39065001",
+                "display": "МКБ код"
+            }
+        ]
+    },
+    "category": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/condition-category",
+                "code": "diagnosis",
+                "display": "Diagnosis"
+            },
+            {
+                "system": "http://snomed.info/sct",
+                "code": "439401001",
+                "display": "Diagnosis"
+            }
+        ]
+    },
+    "status": "confirmed"
+}

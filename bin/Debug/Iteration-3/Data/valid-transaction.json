@@ -1,0 +1,13 @@
+﻿{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "meta": {
+        "profile": [
+            "StructureDefinition/LisResult"
+        ]
+    },
+    "entry": [
+
+
+    ]
+}

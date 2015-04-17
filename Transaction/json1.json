@@ -1,0 +1,24 @@
+﻿{
+    "resourceType": "Bundle",
+    "type": "transaction-response",
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Device",
+                "id": "f46edf54-5cf0-4189-9eb1-e5fca4ba3545",
+                "meta": { "versionId": "f46edf54-5cf0-4189-9eb1-e5fca4ba3545", "lastUpdated": "2015-03-27T08:04:06.05-04:00" },
+                "patient": { "reference": "0B3538BD-C3FC-414E-BF7E-248A23A58EC5225HAHAHA" }
+            },
+            "transaction": { "method": "POST", "url": "Device" }
+        },
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "663ac8cc-74db-47ca-ba7b-7346584260c5",
+                "meta": { "versionId": "663ac8cc-74db-47ca-ba7b-7346584260c5", "lastUpdated": "2015-03-27T08:04:06.05-04:00" },
+                "name": [ { "text": "Goga" } ]
+            },
+            "transaction": { "method": "POST", "url": "Patient" }
+        }
+    ]
+}

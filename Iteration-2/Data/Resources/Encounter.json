@@ -1,0 +1,17 @@
+﻿{
+    "resourceType": "Encounter",
+    "identifier": {
+        "use": "usual",
+        "value": "123456789"
+    },
+    "class": "outpatient",
+    "type": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "367336001",
+                "display": "Chemotherapy"
+            }
+        ]
+    }
+}

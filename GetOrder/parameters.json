@@ -1,0 +1,8 @@
+﻿{
+    "resourceType": "Parameters",
+    "parameter": [
+        { "name": "SourceCode", "valueString": "123456" },
+        { "name": "TargetCode", "valueString": "654321" },
+        { "name": "Barcode", "valueString": "111-222-333" }
+    ]
+}

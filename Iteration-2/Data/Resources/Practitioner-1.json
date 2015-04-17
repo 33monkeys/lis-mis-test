@@ -1,0 +1,38 @@
+﻿{
+    "resourceType": "Practitioner",
+    "name": {
+        "family": [
+            "Careful2"
+        ],
+        "given": [
+            "Adam2"
+        ],
+        "prefix": [
+            "Dr2"
+        ]
+    },
+    "practitionerRole": [
+        {
+            "role": {
+                "coding": [
+                    {
+                        "system": "http://snomed.info/sct",
+                        "code": "36682004",
+                        "display": "Physical therapist"
+                    }
+                ]
+            },
+            "specialty": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "410158009",
+                            "display": "Assess physical therapist service"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

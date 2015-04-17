@@ -1,0 +1,8 @@
+﻿{
+    "resourceType": "Organization",
+    "name": "Target organization",
+    "identifier": {
+        "use": "usual",
+        "value": "123456"
+    }
+}

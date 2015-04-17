@@ -1,0 +1,386 @@
+﻿{
+    "resourceType": "Bundle",
+    "type": "transaction",
+    "meta": {
+        "profile": [
+            "StructureDefinition/LisOrder"
+        ]
+    },
+    "entry": [
+        {
+            "resource": {
+                "resourceType": "Patient",
+                "id": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0",
+                "name": [
+                    {
+                        "use": "official",
+                        "family": [
+                            "Chalmers"
+                        ],
+                        "given": [
+                            "Peter",
+                            "James"
+                        ]
+                    }
+                ],
+                "gender": "male",
+                "birthDate": "1974-12-25",
+                "active": true
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Patient"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Organization",
+                "id": "96EA83A5-4125-4F4C-A659-A7CC334055B2",
+                "name": "Practitioner organization",
+                "identifier": {
+                    "use": "usual",
+                    "value": "123456"
+                }
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Organization"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Organization",
+                "id": "711711C5-52C7-4BEF-9131-E69C27CA7DDC",
+                "name": "Target organization",
+                "identifier": {
+                    "use": "usual",
+                    "value": "123456"
+                }
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Organization"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "D4A72F71-3332-4703-A142-D19B24170D76",
+                "name": {
+                    "family": [
+                        "Careful"
+                    ],
+                    "given": [
+                        "Adam"
+                    ],
+                    "prefix": [
+                        "Dr"
+                    ]
+                },
+                "practitionerRole": [
+                    {
+                        "managingOrganization": {
+                            "reference": "96EA83A5-4125-4F4C-A659-A7CC334055B2",
+                            "display": "AUMC"
+                        },
+                        "role": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "36682004",
+                                    "display": "Physical therapist"
+                                }
+                            ]
+                        },
+                        "specialty": [
+                            {
+                                "coding": [
+                                    {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "410158009",
+                                        "display": "Assess physical therapist service"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Practitioner"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Practitioner",
+                "id": "13FDEDA5-6597-4408-953D-17CBFC95CBF8",
+                "name": {
+                    "family": [
+                        "Careful2"
+                    ],
+                    "given": [
+                        "Adam2"
+                    ],
+                    "prefix": [
+                        "Dr2"
+                    ]
+                },
+                "practitionerRole": [
+                    {
+                        "managingOrganization": {
+                            "reference": "96EA83A5-4125-4F4C-A659-A7CC334055B2",
+                            "display": "AUMC"
+                        },
+                        "role": {
+                            "coding": [
+                                {
+                                    "system": "http://snomed.info/sct",
+                                    "code": "36682004",
+                                    "display": "Physical therapist"
+                                }
+                            ]
+                        },
+                        "specialty": [
+                            {
+                                "coding": [
+                                    {
+                                        "system": "http://snomed.info/sct",
+                                        "code": "410158009",
+                                        "display": "Assess physical therapist service"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Practitioner"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "9DB9A965-18BB-4C2D-9DBC-5FCA568D2FC9",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "122555007",
+                            "display": "Venous blood specimen"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0"
+                },
+                "container": [
+                    {
+                        "identifier": [
+                            {
+                                "value": "48736-15394-75465"
+                            }
+                        ],
+                        "type": {
+                            "text": "Vacutainer"
+                        }
+                    }
+                ],
+                "collection": {
+                    "collectedDateTime": "2014-12-05"
+                }
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Specimen"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Specimen",
+                "id": "CD0EB1BF-D999-4D3D-A865-F2CC1092E8AE",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "122555007",
+                            "display": "Venous blood specimen"
+                        }
+                    ]
+                },
+                "subject": {
+                    "reference": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0"
+                },
+                "container": [
+                    {
+                        "identifier": [
+                            {
+                                "value": "48736-15394-75465"
+                            }
+                        ],
+                        "type": {
+                            "text": "Vacutainer"
+                        }
+                    }
+                ],
+                "collection": {
+                    "collectedDateTime": "2014-12-05"
+                }
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Specimen"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "DiagnosticOrder",
+                "id": "FA9CD669-9D47-4158-A19A-4F7BF4EFC53E",
+                "subject": {
+                    "reference": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0"
+                },
+                "orderer": {
+                    "reference": "D4A72F71-3332-4703-A142-D19B24170D76"
+                },
+                "status": "received",
+                "item": [
+                    {
+                        "code": {
+                            "coding": [
+                                {
+                                    "system": "http://acme.org/tests",
+                                    "code": "LIPID"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "encounter": {
+                    "reference": "A3A4710A-DBD3-4D44-9322-35917F71BD8A"
+                },
+                "specimen": [
+                    {
+                        "reference": "9DB9A965-18BB-4C2D-9DBC-5FCA568D2FC9",
+                        "display": "Whole blood"
+                    },
+                    {
+                        "reference": "CD0EB1BF-D999-4D3D-A865-F2CC1092E8AE",
+                        "display": "Whole blood"
+                    }
+                ]
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "DiagnosticOrder"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Encounter",
+                "id": "A3A4710A-DBD3-4D44-9322-35917F71BD8A",
+                "identifier": {
+                    "use": "usual",
+                    "value": "123456789"
+                },
+                "class": "outpatient",
+                "type": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "367336001",
+                            "display": "Chemotherapy"
+                        }
+                    ]
+                },
+                "patient": {
+                    "reference": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0"
+                },
+                "indication": {
+                    "reference": "D95773F1-EAD9-4D25-BCFE-3CAB62B67864"
+                }
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Encounter"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Condition",
+                "id": "D95773F1-EAD9-4D25-BCFE-3CAB62B67864",
+                "subject": {
+                    "reference": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0"
+                },
+                "code": {
+                    "coding": [
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "39065001",
+                            "display": "МКБ код"
+                        }
+                    ]
+                },
+                "category": {
+                    "coding": [
+                        {
+                            "system": "http://hl7.org/fhir/condition-category",
+                            "code": "diagnosis",
+                            "display": "Diagnosis"
+                        },
+                        {
+                            "system": "http://snomed.info/sct",
+                            "code": "439401001",
+                            "display": "Diagnosis"
+                        }
+                    ]
+                },
+                "status": "confirmed"
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Condition"
+            }
+        },
+        {
+            "resource": {
+                "resourceType": "Order",
+                "id": "1",
+                "identifier": {
+                    "use": "usual",
+                    "value": "12345"
+                },
+                "date": "2012-12-28T09:03:04+11:00",
+                "subject": {
+                    "reference": "FCB053E4-8BD3-40EF-93C9-A1149CF0A6B0"
+                },
+                "source": {
+                    "reference": "13FDEDA5-6597-4408-953D-17CBFC95CBF8"
+                },
+                "target": {
+                    "reference": "711711C5-52C7-4BEF-9131-E69C27CA7DDC"
+                },
+                "when": {
+                    "code": {
+                        "coding": [
+                            {
+                                "system": "http://acme.com/codes/request-priority",
+                                "code": "today"
+                            }
+                        ]
+                    }
+                },
+                "detail": [
+                    {
+                        "reference": "FA9CD669-9D47-4158-A19A-4F7BF4EFC53E"
+                    }
+                ]
+            },
+            "transaction": {
+                "method": "POST",
+                "url": "Order"
+            }
+        }
+    ]
+}

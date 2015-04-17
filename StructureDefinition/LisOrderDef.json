@@ -1,0 +1,179 @@
+﻿{
+    "description": "NetLabOrder",
+    "date": "2015-03-18T00:00:00+02:00",
+    "meta": {
+        "lastUpdated": "2015-03-18T15:53:52.116745+00:00",
+        "versionId": "e95090f7-60a1-4d5b-9ef7-27c912451e02"
+    },
+    "publisher": "Health Samurai",
+    "name": "NetLabOrder",
+    "abstract": "false",
+    "type": "constraint",
+    "resourceType": "StructureDefinition",
+    "status": "draft",
+    "id": "e95090f7-60a1-4d5b-9ef7-27c912451e02",
+    "url": "http://health-samurai.io/fhir/StructureDefinition/Order",
+    "base": "http://hl7.org/fhir/StructureDefinition/Order",
+    "differential": {
+        "element": [
+            {
+                "path": "Order.identifier",
+                "isSummary": "false",
+                "synonym": "IdClaimMIS",
+                "mapping": { "identity": "rim", "map": ".id" },
+                "short": "Идентификатор заявки в МИС",
+                "type": { "code": "Identifier" },
+                "min": "1",
+                "max": "1"
+            },
+            {
+                "path": "Order.identifier.value",
+                "min": "1",
+                "definition": "The portion of the identifier typically displayed to the user and which is unique within the context of the system.",
+                "short": "Непосредственно само значение идентификатора",
+                "comments": "If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.",
+                "mapping": [
+                    { "identity": "v2", "map": "CX.1 / EI.1" },
+                    { "identity": "rim", "map": "II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)" },
+                    { "identity": "servd", "map": "./Value" }
+                ],
+                "type": { "code": "string" },
+                "max": "1",
+                "exampleString": "123456",
+                "isSummary": "false"
+            },
+            {
+                "path": "Order.date",
+                "isSummary": "false",
+                "synonym": "ClaimDate",
+                "max": "1",
+                "type": { "code": "dateTime" },
+                "mapping": [
+                    { "identity": "v2", "map": "ORC-9" },
+                    { "identity": "rim", "map": ".participation[typeCode=AUT].time" }
+                ],
+                "short": "Дата заявки",
+                "definition": "When the order was made.",
+                "min": "1"
+            },
+            {
+                "path": "Order.subject",
+                "min": "1",
+                "definition": "Patient this order is about.",
+                "short": "Соотнесение с пациентом",
+                "comments": "May be left blank if the request reference identifies the patient, or if the request is not associated with a patient.",
+                "mapping": [
+                    { "identity": "v2", "map": "PID-3" },
+                    { "identity": "rim", "map": ".participation[typeCode=SBJ].role[classCode=PAT]" }
+                ],
+                "type": { "aggregation": "bundled", "profile": "http://hl7.org/fhir/Profile/Patient", "code": "Reference" },
+                "max": "1",
+                "synonym": "Patient",
+                "isSummary": "false"
+            },
+            {
+                "path": "Order.subject.reference",
+                "min": "1",
+                "definition": "A reference to a location at which the other resource is found. The reference may a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+                "short": "Relative, internal or absolute URL reference",
+                "comments": "Using absolute URLs provides a stable scalable approach suitable for a cloud/web context, while using relative/logical references provides a flexible approach suitable for use when trading across closed eco-system boundaries.   Absolute URLs do not need to point to a FHIR RESTful server, though this is the preferred approach. If the url conforms to the structure '/[type]/@[id]' then it should be assumed that the reference is to a FHIR RESTful server.",
+                "mapping": { "identity": "rim", "map": "N/A" },
+                "type": { "code": "string" },
+                "max": "1",
+                "condition": "1",
+                "isSummary": "false"
+            },
+            {
+                "path": "Order.source",
+                "isSummary": "false",
+                "synonym": [ "Author", "Practitioner" ],
+                "max": "1",
+                "type": { "aggregation": "bundled", "profile": "http://hl7.org/fhir/Profile/Practitioner", "code": "Reference" },
+                "mapping": [
+                    { "identity": "v2", "map": "ORC-12 / OBR-16 / RXO-14 / RXE-13 / PRT-5 (PRT-4-Participation='OP')" },
+                    { "identity": "rim", "map": ".participation[typeCode=AUT].role" }
+                ],
+                "short": "Соотнесение с автором заявки",
+                "definition": "Who initiated the order.",
+                "min": "1"
+            },
+            {
+                "path": "Order.target",
+                "definition": "Who is intended to fulfill the order.",
+                "isSummary": "false",
+                "mapping": [
+                    { "identity": "v2", "map": "Unclear: MSH-5 / IPC-7 / BPO-8 / RXO-32 / RXE-40 / RXD-30 / RXG-11 / RXG-27 / PRT-8 (PRT-4-participation in { 'AP', 'DP', 'PO', 'RT' })" },
+                    { "identity": "rim", "map": ".participation[typeCode=PFM].role" }
+                ],
+                "short": "Соотнесение с целевой лабораторией",
+                "type": { "aggregation": "bundled", "profile": "http://hl7.org/fhir/Profile/Organization", "code": "Reference" },
+                "min": "1",
+                "max": "1"
+            },
+            {
+                "path": "Order.when",
+                "definition": "When order should be fulfilled.",
+                "constraint": { "severity": "error", "xpath": "exists(f:code) != exists(f:schedule)", "human": "Provide a code or a schedule, but not both", "name": "Scheduling Details", "key": "1" },
+                "isSummary": "false",
+                "mapping": [ { "identity": "v2", "map": "TQ1, TQ2" }, { "identity": "rim", "map": ".effectiveTime" } ],
+                "short": "Метка срочности",
+                "min": "1",
+                "max": "1"
+            },
+            {
+                "path": "Order.when.code",
+                "min": "1",
+                "definition": "Code specifies when request should be done. The code may simply be a priority code.",
+                "short": "Code specifies when request should be done. The code may simply be a priority code",
+                "comments": "This is usually a local code agreed in the context of the ordering workflow.",
+                "mapping": { "identity": "rim", "map": "GTS is a coded value" },
+                "type": { "code": "CodeableConcept" },
+                "max": "1",
+                "condition": "1",
+                "isSummary": "false"
+            },
+            {
+                "path": "Order.when.code.coding",
+                "requirements": "Allows for translations and alternate encodings within a code system.  Also supports communication of the same instance to systems requiring different encodings.",
+                "min": "1",
+                "definition": "A reference to a code defined by a terminology system.",
+                "short": "Code defined by a terminology system",
+                "comments": "Codes may be defined very casually in enumerations, or code lists, up to very definition definitions such as SNOMED CT - see the V3 Core Principles for more information.  Ordering of codings is undefined and SHALL not be used to infer meaning.",
+                "mapping": [
+                    { "identity": "v2", "map": "C*E.1-8, C*E.10-22" },
+                    { "identity": "rim", "map": "union(., ./translation)" }
+                ],
+                "type": { "code": "Coding" },
+                "max": "1",
+                "isSummary": "false"
+            },
+            {
+                "path": "Order.when.code.coding.code",
+                "isSummary": "false",
+                "max": "1",
+                "type": { "code": "code" },
+                "mapping": [
+                    { "identity": "v2", "map": "C*E.1" },
+                    { "identity": "rim", "map": "./code" }
+                ],
+                "short": "Symbol in syntax defined by the system",
+                "definition": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                "min": "1",
+                "requirements": "Need to refer to a particular code in the system.",
+            },
+            {
+                "path": "Order.detail",
+                "definition": "What action is being ordered.",
+                "isSummary": "false",
+                "mapping": { "identity": "rim", "map": ".outboundRelationship[typeCode=SUBJ].target" },
+                "short": "Соотнесение с клинической частью",
+                "type": { "aggregation": "bundled", "profile": "http://hl7.org/fhir/Profile/DiagnosticOrder", "code": "Reference" },
+                "min": "1",
+                "max": "*"
+            }
+        ]
+    },
+    "contact": {        
+        "telecom": { "system": "url", "value": "http://health-samurai.io", "use": "work" }
+    }
+}
