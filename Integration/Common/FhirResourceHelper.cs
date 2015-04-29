@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
+using Lis.Business.Helpers;
 using Monads.NET;
 using NUnit.Framework;
 using RestSharp;
@@ -36,6 +37,10 @@ namespace Lis.Test.Integration.Common
         {
             var practitioner = new Practitioner
             {
+                Identifier = new List<Identifier>
+                {
+                    new Identifier(Systems.PRACTITIONER_IDENTIFIER, Guid.NewGuid().ToString())
+                },
                 Name = new HumanName
                 {
                     Family = new List<string> {"Петров"},
@@ -46,6 +51,11 @@ namespace Lis.Test.Integration.Common
                     new Practitioner.PractitionerPractitionerRoleComponent
                     {
                         ManagingOrganization = FhirHelper.CreateReference(orderOrganization),
+                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, Guid.NewGuid().ToString()),
+                        Specialty = new List<CodeableConcept>
+                        {
+                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, Guid.NewGuid().ToString())
+                        }
                     }
                 }
             };
@@ -53,44 +63,58 @@ namespace Lis.Test.Integration.Common
             return FhirClient.Create(practitioner);
         }
 
-        public static Specimen CreateSpecimen(Patient patient)
+        public static Specimen GetSpecimen(Patient patient)
         {
             var specimen = new Specimen
             {
-                Identifier = new List<Identifier>
-                {
-                    new Identifier("http://netrika", Guid.NewGuid().ToString())
-                },
+                Id = Guid.NewGuid().ToString(),
                 Collection = new Specimen.SpecimenCollectionComponent
                 {
                     Collected = new Date(DateTime.Today.ToString(CultureInfo.CurrentCulture))
                 },
-                Type = new CodeableConcept("http://netrika", Guid.NewGuid().ToString()),
+                Type = new CodeableConcept(Systems.BIOMATERIAL, Guid.NewGuid().ToString()),
                 Container = new List<Specimen.SpecimenContainerComponent>
                 {
                     new Specimen.SpecimenContainerComponent
                     {
                         Identifier = new List<Identifier>
                         {
-                            new Identifier("http://netrika", Guid.NewGuid().ToString())
+                            new Identifier(Systems.CONTAINER_TYPE_IDENTIFIER, Guid.NewGuid().ToString())
                         },
-                        Type = new CodeableConcept("http://netrika", Guid.NewGuid().ToString())
+                        Type = new CodeableConcept(Systems.CONTAINER_TYPE, Guid.NewGuid().ToString())
                     }
                 },
                 Subject = FhirHelper.CreateReference(patient)
             };
 
-            return FhirClient.Create(specimen);
+            return specimen;
         }
 
-        public static Condition CreateCondition(Patient patient)
+        public static Condition GetCondition(Patient patient)
         {
             var condition = new Condition
             {
-                Patient = FhirHelper.CreateReference(patient)
+                Id = Guid.NewGuid().ToString(),
+                Identifier = new List<Identifier>
+                {
+                    new Identifier(Systems.MIS_IDENTIFIER, Guid.NewGuid().ToString())
+                },
+                Patient = FhirHelper.CreateReference(patient),
+                DateAsserted = DateTime.Now.ToString(CultureInfo.CurrentCulture),
+                Code = new CodeableConcept(Systems.MKB10, Guid.NewGuid().ToString()),
+                Category = new CodeableConcept(Systems.CONDITION_CATEGORY, Guid.NewGuid().ToString()),
+                ClinicalStatus = Condition.ConditionClinicalStatus.Confirmed,
+                Notes = "Condition notes",
+                //DueTo = new List<Condition.ConditionDueToComponent>
+                //{
+                //    new Condition.ConditionDueToComponent
+                //    {
+                //        Target = 
+                //    }
+                //}
             };
 
-            return FhirClient.Create(condition);
+            return condition;
         }
 
         public static Encounter CreateEncounter(Patient patient, Condition condition)
@@ -99,15 +123,20 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier("http://netrika", Guid.NewGuid().ToString())
+                    new Identifier(Systems.MIS_IDENTIFIER, Guid.NewGuid().ToString())
                 },
                 Type = new List<CodeableConcept>
                 {
-                    new CodeableConcept("http://netrika", Guid.NewGuid().ToString())
+                    new CodeableConcept(Systems.ENCOUNTER_TYPE, Guid.NewGuid().ToString())
                 },
-                Class = new Encounter.EncounterClass(),
+                Class = Encounter.EncounterClass.Outpatient,
+                Status = Encounter.EncounterState.Planned,
                 Patient = FhirHelper.CreateReference(patient),
-                Indication = new List<ResourceReference> {FhirHelper.CreateReference(condition)}
+                Indication = new List<ResourceReference> {new ResourceReference{Reference = condition.Id}},
+                Reason = new List<CodeableConcept>
+                {
+                    new CodeableConcept(Systems.REASON_CODE, Guid.NewGuid().ToString())
+                }
             };
 
             return FhirClient.Create(encounter);
@@ -125,7 +154,10 @@ namespace Lis.Test.Integration.Common
             return FhirClient.Create(organization);
         }
 
-        public static DiagnosticOrder GetDiagnosticOrder(Patient patient, Practitioner diagnosticOrderPractitioner, Encounter encounter, Observation observation, Observation observation1, Specimen specimen, Specimen specimen1)
+        public static DiagnosticOrder GetDiagnosticOrder(Patient patient, Practitioner diagnosticOrderPractitioner, 
+            Encounter encounter, 
+            Observation observation, Observation observation1, 
+            Specimen specimen, Specimen specimen1)
         {
             var diagnosticOrder = new DiagnosticOrder
             {
@@ -135,14 +167,15 @@ namespace Lis.Test.Integration.Common
                 Encounter = FhirHelper.CreateReference(encounter),
                 SupportingInformation = new List<ResourceReference>
                 {
-                    FhirHelper.CreateReference(observation),
-                    FhirHelper.CreateReference(observation1),
+                    FhirHelper.CreateBundleReference(observation),
+                    FhirHelper.CreateBundleReference(observation1),
                 },
                 Specimen = new List<ResourceReference>
                 {
-                    FhirHelper.CreateReference(specimen),
-                    FhirHelper.CreateReference(specimen1)
+                    FhirHelper.CreateBundleReference(specimen),
+                    FhirHelper.CreateBundleReference(specimen1)
                 },
+                Status = DiagnosticOrder.DiagnosticOrderStatus.Proposed,
                 Item = new List<DiagnosticOrder.DiagnosticOrderItemComponent>
                 {
                     new DiagnosticOrder.DiagnosticOrderItemComponent
@@ -152,31 +185,14 @@ namespace Lis.Test.Integration.Common
                             Text = "Услуга 1",
                             Coding = new List<Coding>
                             {
-                                new Coding("http://hl7.org", "услуга1"),
-                            }
-                        }
-                    },
-                    new DiagnosticOrder.DiagnosticOrderItemComponent
-                    {
-                        Code = new CodeableConcept
-                        {
-                            Text = "Услуга 2",
-                            Coding = new List<Coding>
+                                new Coding(Systems.DIAGNOSTIC_ORDER_CODE, Guid.NewGuid().ToString()),
+                            },
+                            Extension = new List<Extension>
                             {
-                                new Coding("http://hl7.org", "услуга2"),
+                                new Extension(Systems.DIAGNOSTIC_ORDER_FINANCIAL_EXTENSION, new CodeableConcept(Systems.FINANCIAL, Guid.NewGuid().ToString())),
+                                new Extension(Systems.DIAGNOSTIC_ORDER_INSURANCE_EXTENSION, new ResourceReference{Reference = Guid.NewGuid().ToString()})
                             }
-                        }
-                    },
-                    new DiagnosticOrder.DiagnosticOrderItemComponent
-                    {
-                        Code = new CodeableConcept
-                        {
-                            Text = "Услуга 3",
-                            Coding = new List<Coding>
-                            {
-                                new Coding("http://hl7.org", "услуга3"),
-                            }
-                        }
+                        },
                     }
                 }
             };
@@ -184,19 +200,30 @@ namespace Lis.Test.Integration.Common
             return diagnosticOrder;
         }
 
-        public static Observation CreateObservation()
+        public static Observation GetObservation()
         {
-            var observation = new Observation();
-            return FhirClient.Create(observation);
+            var observation = new Observation
+            {
+                Id = Guid.NewGuid().ToString(),
+                Code = new CodeableConcept(Systems.OBSERVATION_NAME, Guid.NewGuid().ToString()),
+                Status = Observation.ObservationStatus.Registered,
+                Value = new Quantity
+                {
+                    Value = 10,
+                }
+            };
+            return observation;
         }
 
-        public static Order GetOrder(Patient patient, Practitioner orderPractitioner, Organization orderOrganization, Resource diagnosticOrder)
+        public static Order GetOrder(Patient patient, Practitioner orderPractitioner, 
+            Organization orderOrganization,
+            Resource diagnosticOrder)
         {
             var order = new Order
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier("http://netrika.ru", Guid.NewGuid().ToString()),
+                    new Identifier(Systems.MIS_IDENTIFIER, Guid.NewGuid().ToString()),
                 },
                 Date = DateTime.Today.ToString(CultureInfo.CurrentCulture),
                 When = new Order.OrderWhenComponent
@@ -205,20 +232,22 @@ namespace Lis.Test.Integration.Common
                     {
                         Coding = new List<Coding>
                         {
-                            new Coding("http://hl7.org", Guid.NewGuid().ToString())
+                            new Coding(Systems.PRIORIRY, Guid.NewGuid().ToString())
                         }
                     }
                 },
                 Subject = FhirHelper.CreateReference(patient),
                 Source = FhirHelper.CreateReference(orderPractitioner),
                 Target = FhirHelper.CreateReference(orderOrganization),
-                Detail = new List<ResourceReference> {new ResourceReference {Reference = diagnosticOrder.Id}},
+                Detail = new List<ResourceReference> {FhirHelper.CreateBundleReference(diagnosticOrder)},
             };
 
             return order;
         }
 
-        public static Bundle GetLisOrderBundle(Resource order, Resource diagnosticOrder)
+        public static Bundle GetLisOrderBundle(Resource order, Resource diagnosticOrder, Condition condition, 
+            List<Specimen> specimens, 
+            List<Observation> observations)
         {
             var lisOrderBundle = new Bundle
             {
@@ -246,9 +275,43 @@ namespace Lis.Test.Integration.Common
                             Method = Bundle.HTTPVerb.POST,
                             Url = order.TypeName
                         }
+                    }, new Bundle.BundleEntryComponent
+                    {
+                        Resource = condition,
+                        Transaction = new Bundle.BundleEntryTransactionComponent
+                        {
+                            Method = Bundle.HTTPVerb.POST,
+                            Url = condition.TypeName
+                        }
                     }
                 }
             };
+
+            foreach (var specimen in specimens)
+            {
+                lisOrderBundle.Entry.Add(new Bundle.BundleEntryComponent
+                {
+                    Resource = specimen,
+                    Transaction = new Bundle.BundleEntryTransactionComponent
+                    {
+                        Method = Bundle.HTTPVerb.POST,
+                        Url = specimen.TypeName
+                    }
+                });
+            }
+
+            foreach (var observation in observations)
+            {
+                lisOrderBundle.Entry.Add(new Bundle.BundleEntryComponent
+                {
+                    Resource = observation,
+                    Transaction = new Bundle.BundleEntryTransactionComponent
+                    {
+                        Method = Bundle.HTTPVerb.POST,
+                        Url = observation.TypeName
+                    }
+                });
+            }
 
             return lisOrderBundle;
         }

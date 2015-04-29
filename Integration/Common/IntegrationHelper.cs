@@ -11,7 +11,6 @@ namespace Lis.Test.Integration.Common
     public class IntegrationHelper
     {
         public static Bundle CreateRandomLabOrder()
-        
         {
             var patient = FhirResourceHelper.CreatePatient();
 
@@ -21,18 +20,22 @@ namespace Lis.Test.Integration.Common
             var orderPractitioner = FhirResourceHelper.CreatePractitioner(orderOrganization);
             var diagnosticOrderPractitioner = FhirResourceHelper.CreatePractitioner(diagnosticOrderOrganization);
 
-            var specimen = FhirResourceHelper.CreateSpecimen(patient);
-            var specimen1 = FhirResourceHelper.CreateSpecimen(patient);
-            var condition = FhirResourceHelper.CreateCondition(patient);
+            var specimen = FhirResourceHelper.GetSpecimen(patient);
+            var specimen1 = FhirResourceHelper.GetSpecimen(patient);
+
+            var condition = FhirResourceHelper.GetCondition(patient);
 
             var encounter = FhirResourceHelper.CreateEncounter(patient, condition);
 
-            var observation = FhirResourceHelper.CreateObservation();
-            var observation1 = FhirResourceHelper.CreateObservation();
+            var observation = FhirResourceHelper.GetObservation();
+            var observation1 = FhirResourceHelper.GetObservation();
 
-            var diagnosticOrder = FhirResourceHelper.GetDiagnosticOrder(patient, diagnosticOrderPractitioner, encounter, observation, observation1, specimen, specimen1);
+            var diagnosticOrder = FhirResourceHelper.GetDiagnosticOrder(patient, diagnosticOrderPractitioner, encounter, 
+                observation, observation1, specimen, specimen1);
             var order = FhirResourceHelper.GetOrder(patient, orderPractitioner, orderOrganization, diagnosticOrder);
-            var lisOrderBundle = FhirResourceHelper.GetLisOrderBundle(order, diagnosticOrder);
+            var lisOrderBundle = FhirResourceHelper.GetLisOrderBundle(order, diagnosticOrder, condition, 
+                new List<Specimen>{specimen, specimen1},
+                new List<Observation>{observation, observation1});
 
             return lisOrderBundle;
         }
