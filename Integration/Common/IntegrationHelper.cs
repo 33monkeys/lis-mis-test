@@ -63,18 +63,19 @@ namespace Lis.Test.Integration.Common
 
         public static Bundle CreateLabResultForOrder(Order order)
         {
-            var resultOrganization = FhirResourceHelper.CreateOrganization();
+            var resultOrganization = order.Target;
 
-            var practitioner1 = FhirResourceHelper.CreatePractitioner(resultOrganization);
-            var practitioner2 = FhirResourceHelper.CreatePractitioner(resultOrganization);
-            var reportPractitioner = FhirResourceHelper.CreatePractitioner(resultOrganization);
+            var practitioner1 = FhirResourceHelper.GetPractitioner(resultOrganization);
+            var practitioner2 = FhirResourceHelper.GetPractitioner(resultOrganization);
+            var reportPractitioner = FhirResourceHelper.GetPractitioner(resultOrganization);
 
             var observation1 = FhirResourceHelper.GetObservation(practitioner1);
             var observation2 = FhirResourceHelper.GetObservation(practitioner2);
 
-            var diagnosticReport = FhirResourceHelper.GetDiagnosticReport(order.Subject, reportPractitioner, observation1, observation2);
+            var diagnosticReport = FhirResourceHelper.GetDiagnosticReport(order.Subject, 
+                reportPractitioner, observation1, observation2, order.Detail.First());
 
-            var orderResponse = FhirResourceHelper.GetOrderResponse(order, diagnosticReport);
+            var orderResponse = FhirResourceHelper.GetOrderResponse(order, new[] {diagnosticReport});
 
             var lisResultBundle = new Bundle
             {
@@ -92,6 +93,30 @@ namespace Lis.Test.Integration.Common
                         {
                             Method = Bundle.HTTPVerb.POST,
                             Url = orderResponse.TypeName,
+                        }
+                    },
+                    new Bundle.BundleEntryComponent
+                    {
+                        Resource = practitioner1,
+                        Transaction = new Bundle.BundleEntryTransactionComponent
+                        {
+                            Method = Bundle.HTTPVerb.POST
+                        }
+                    },
+                    new Bundle.BundleEntryComponent
+                    {
+                        Resource = practitioner2,
+                        Transaction = new Bundle.BundleEntryTransactionComponent
+                        {
+                            Method = Bundle.HTTPVerb.POST
+                        }
+                    },
+                    new Bundle.BundleEntryComponent
+                    {
+                        Resource = reportPractitioner,
+                        Transaction = new Bundle.BundleEntryTransactionComponent
+                        {
+                            Method = Bundle.HTTPVerb.POST
                         }
                     },
                     new Bundle.BundleEntryComponent
@@ -150,6 +175,13 @@ namespace Lis.Test.Integration.Common
             var targetCode = targetOrganization.Identifier.First().Value;
 
             return new Tuple<string, string>(targetCode, orderMisId);
+        }
+
+        public static Order GetOrder(Bundle orderResponse)
+        {
+            var order = orderResponse.Entry
+                .FirstOrDefault(x => x.Resource is Order)
+                .With(x => (Order) x.Resource);
         }
     }
 }

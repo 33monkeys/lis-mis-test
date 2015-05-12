@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
-using Lis.Business.Helpers;
 using Monads.NET;
 using NUnit.Framework;
 using RestSharp;
@@ -383,7 +382,7 @@ namespace Lis.Test.Integration.Common
                 Id = Guid.NewGuid().ToString(),
                 Issued = DateTime.Now,
                 Status = Observation.ObservationStatus.Amended,
-                Performer = new List<ResourceReference> { FhirHelper.CreateReference(practitioner) },
+                Performer = new List<ResourceReference> { FhirHelper.CreateBundleReference(practitioner) },
                 ReferenceRange = new List<Observation.ObservationReferenceRangeComponent>
                 {
                     new Observation.ObservationReferenceRangeComponent
@@ -396,40 +395,26 @@ namespace Lis.Test.Integration.Common
         }
 
         public static DiagnosticReport GetDiagnosticReport(ResourceReference orderSubject, Practitioner practitioner1,
-            Observation observation1, Observation observation2)
+            Observation observation1, Observation observation2, ResourceReference detail)
         {
             return new DiagnosticReport
             {
                 Id = Guid.NewGuid().ToString(),
-                Subject = orderSubject,
-                Conclusion = "Заключение",
+                Name = new CodeableConcept(Systems.DIAGNOSTIC_REPORT_CODE, Guid.NewGuid().ToString()),
                 Status = DiagnosticReport.DiagnosticReportStatus.Final,
                 Issued = DateTime.Today.AddDays(-1).ToString(CultureInfo.CurrentCulture),
+                Subject = orderSubject,
+                Performer = FhirHelper.CreateBundleReference(practitioner1),
+                RequestDetail = new List<ResourceReference>{detail},
+                Conclusion = "Заключение",
                 PresentedForm = new List<Attachment>
                 {
                     new Attachment {Hash = Encoding.UTF8.GetBytes("hash"), Data = Encoding.UTF8.GetBytes("data")}
                 },
-                Performer = FhirHelper.CreateReference(practitioner1),
-                Name = new CodeableConcept("Name", Guid.NewGuid().ToString()),
                 Result = new List<ResourceReference>
                 {
-                    new ResourceReference {Reference = observation1.Id},
-                    new ResourceReference {Reference = observation2.Id},
-                }
-            };
-        }
-
-        public static OrderResponse GetOrderResponse(Order order, DiagnosticReport diagnosticReport)
-        {
-            return new OrderResponse
-            {
-                Identifier = new List<Identifier> { new Identifier { Value = Guid.NewGuid().ToString() } },
-                Date = DateTime.Now.ToString(CultureInfo.CurrentCulture),
-                OrderStatus_ = OrderResponse.OrderStatus.Completed,
-                Request = FhirHelper.CreateReference(order),
-                Fulfillment = new List<ResourceReference>
-                {
-                    new ResourceReference{Reference = diagnosticReport.Id}
+                    FhirHelper.CreateBundleReference(observation1),
+                    FhirHelper.CreateBundleReference(observation2),
                 }
             };
         }
@@ -502,6 +487,49 @@ namespace Lis.Test.Integration.Common
 
             var response = client.Execute(request);
             return (Parameters)FhirParser.ParseFromJson(response.Content);
+        }
+
+        public static Resource GetOrderResponse(Order order, DiagnosticReport[] reports)
+        {
+            return new OrderResponse
+            {
+                Identifier = new List<Identifier> { order.Identifier.First() },
+                Request = FhirHelper.CreateReference(order),
+                Date = DateTime.Now.ToString(CultureInfo.CurrentCulture),
+                Who = order.Source,
+                OrderStatus_ = OrderResponse.OrderStatus.Completed,
+                Fulfillment = reports.Select(FhirHelper.CreateBundleReference).ToList()
+            };
+        }
+
+        public static Practitioner GetPractitioner(ResourceReference orderOrganization)
+        {
+            var practitioner = new Practitioner
+            {
+                Identifier = new List<Identifier>
+                {
+                    new Identifier(Systems.PRACTITIONER_IDENTIFIER, Guid.NewGuid().ToString())
+                },
+                Name = new HumanName
+                {
+                    Family = new List<string> { "Петров" },
+                    Given = new List<string> { "Петр" }
+                },
+                PractitionerRole = new List<Practitioner.PractitionerPractitionerRoleComponent>
+                {
+                    new Practitioner.PractitionerPractitionerRoleComponent
+                    {
+                        ManagingOrganization = orderOrganization,
+                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, Guid.NewGuid().ToString()),
+                        Specialty = new List<CodeableConcept>
+                        {
+                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, Guid.NewGuid().ToString())
+                        }
+                    }
+                }
+            };
+
+            return practitioner;
         }
     }
 }

@@ -53,12 +53,8 @@ namespace Lis.Test.Integration
             // Проверяем, что заказ создался на сервере
             ValidationHelper.ValidateLisOrderResponse(orderResponse);
 
-            // Пробирка со штрихкодом пришла лабораторию TODO: waiting fhirbase fix (https://github.com/fhirbase/fhirbase/issues/89)
-            //var specimenBarcode = IntegrationHelper.GetSpecimenBarcode(orderResponse);
-            //var order = IntegrationHelper.GetOrderByBarcode(specimenBarcode);
-            var order = orderResponse.Entry
-                .FirstOrDefault(x => x.Resource is Order)
-                .With(x => (Order)x.Resource);
+            //Получаем пробирку со штрихкодом по параметрам
+            var order = IntegrationHelper.GetOrder(orderResponse);
             
             // Создаем результат лабораторного исследования для заказа 
             var labResult = IntegrationHelper.CreateLabResultForOrder(order);

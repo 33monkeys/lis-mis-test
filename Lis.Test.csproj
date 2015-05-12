@@ -49,9 +49,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Hl7.Fhir.DSTU2.0.50.0\lib\net45\Hl7.Fhir.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Lis.Business">
-      <HintPath>..\spark2\Lis.Business\bin\Debug\Lis.Business.dll</HintPath>
-    </Reference>
     <Reference Include="Monads.NET">
       <HintPath>..\packages\Monads.NET.1.0.3\lib\net40\Monads.NET.dll</HintPath>
     </Reference>
@@ -84,6 +81,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="GetOrder\GetOrderValidationTest.cs" />
+    <Compile Include="Integration\Common\Systems.cs" />
     <Compile Include="IpResolver.cs" />
     <Compile Include="FhirbaseApiTest.cs" />
     <Compile Include="Integration\Common\FhirResourceHelper.cs" />
