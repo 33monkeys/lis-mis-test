@@ -100,7 +100,8 @@ namespace Lis.Test.Integration.Common
                         Resource = practitioner1,
                         Transaction = new Bundle.BundleEntryTransactionComponent
                         {
-                            Method = Bundle.HTTPVerb.POST
+                            Method = Bundle.HTTPVerb.POST,
+                            Url = practitioner1.TypeName,
                         }
                     },
                     new Bundle.BundleEntryComponent
@@ -108,7 +109,8 @@ namespace Lis.Test.Integration.Common
                         Resource = practitioner2,
                         Transaction = new Bundle.BundleEntryTransactionComponent
                         {
-                            Method = Bundle.HTTPVerb.POST
+                            Method = Bundle.HTTPVerb.POST,
+                            Url = practitioner2.TypeName,
                         }
                     },
                     new Bundle.BundleEntryComponent
@@ -116,7 +118,8 @@ namespace Lis.Test.Integration.Common
                         Resource = reportPractitioner,
                         Transaction = new Bundle.BundleEntryTransactionComponent
                         {
-                            Method = Bundle.HTTPVerb.POST
+                            Method = Bundle.HTTPVerb.POST,
+                            Url = reportPractitioner.TypeName,
                         }
                     },
                     new Bundle.BundleEntryComponent
@@ -179,9 +182,16 @@ namespace Lis.Test.Integration.Common
 
         public static Order GetOrder(Bundle orderResponse)
         {
+            //var orderCodes = GetOrderCodes(orderResponse).First();
+            //var getOrderResponse = FhirResourceHelper.GetOrderOperation(targetCode: orderCodes.Item1,
+            //        barcode: orderCodes.Item2);
+            //var order = (Order)getOrderResponse.Parameter.Find(x => x.Name == "Order").Resource;
+
             var order = orderResponse.Entry
                 .FirstOrDefault(x => x.Resource is Order)
-                .With(x => (Order) x.Resource);
+                .With(x => (Order)x.Resource);
+
+            return order;
         }
     }
 }

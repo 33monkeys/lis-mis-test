@@ -4,12 +4,40 @@
     {
         #region Systems
 
+        /// <summary>
+        /// Идентификатор случая обслуживания в МИС
+        /// </summary>
+        public static string MIS_CASE_IDENTIFIER = "http://netrika.ru/mis-case-identifier";
+
+        /// <summary>
+        /// Данные о полисе
+        /// </summary>
+        public static string COVERAGE_IDENTIFIER = "http://netrika.ru/coverage-identifier";
+
+        public static string POLIS_OMS_OLD = "http://netrika.ru/polis-oms-old";
+        public static string POLIS_OMS_NEW = "http://netrika.ru/polis-oms-new";
+        public static string POLIS_DMS = "http://netrika.ru/polis-dms";
+
+        public static string PATIENT_PASSPORT = "http://netrika.ru/patient-pasport";
+        public static string PATIENT_SNILS = "http://netrika.ru/patient-snils";
+        public static string MENOPAUSE = "http://netrika.ru/menopause";
+
+        /// <summary>
+        /// Идентификатор пациента в МИС
+        /// </summary>
+        public const string PATIENT_MIS_IDENTIFIER = "http://netrika.ru/patient-mis-identifier";
+
         public const string OBSERVATION_LOINC = "http://netrika.ru/observation-loinc";
 
         /// <summary>
         /// Идентификатор заявки в МИС
         /// </summary>
         public const string MIS_IDENTIFIER = "http://netrika.ru/mis-identifier";
+
+        /// <summary>
+        /// Идентификатор результата в ЛИС
+        /// </summary>
+        public const string LIS_IDENTIFIER = "http://netrika.ru/lis-identifier";
 
         /// <summary>
         /// Идентификатор передающей системы

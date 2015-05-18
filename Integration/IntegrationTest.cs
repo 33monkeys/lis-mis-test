@@ -25,7 +25,9 @@ namespace Lis.Test.Integration
         {
             Orders = new List<Bundle>();
             for (var i = 0; i < 1; i++)
+            {
                 Orders.Add(IntegrationHelper.CreateRandomLabOrder());
+            }
 
             FhirClient = new FhirClient(Constants.Endpoint);
         }
@@ -47,6 +49,8 @@ namespace Lis.Test.Integration
         [TestCaseSource("Orders")]
         public void CreateOrder_And_Send_OrderResult(Bundle lisOrder)
         {
+            LogHelper.SaveOrderBundle(lisOrder, Guid.NewGuid().ToString());
+
             // Отправляем заявку на исследование
             var orderResponse = FhirClient.Transaction(lisOrder);
 
@@ -59,7 +63,7 @@ namespace Lis.Test.Integration
             // Создаем результат лабораторного исследования для заказа 
             var labResult = IntegrationHelper.CreateLabResultForOrder(order);
 
-            //LogHelper.SaveResultBundle(labResult, Guid.NewGuid().ToString());
+            LogHelper.SaveResultBundle(labResult, Guid.NewGuid().ToString());
 
             // Отправляем результат на сервер
             var labResultResponse = FhirClient.Transaction(labResult);

@@ -26,6 +26,7 @@ namespace Lis.Test.Integration.Common
         {
             var patient = new Patient
             {
+                Identifier = new List<Identifier>{new Identifier(Systems.PATIENT_PASSPORT, "165516")},
                 Gender = AdministrativeGender.Male,
                 BirthDate = DateTime.Today.AddYears(-54).ToString(CultureInfo.CurrentCulture),
             };
@@ -96,7 +97,7 @@ namespace Lis.Test.Integration.Common
                 Id = Guid.NewGuid().ToString(),
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.MIS_IDENTIFIER, Guid.NewGuid().ToString())
+                    new Identifier(Systems.MES, Guid.NewGuid().ToString())
                 },
                 Patient = FhirHelper.CreateReference(patient),
                 DateAsserted = DateTime.Now.ToString(CultureInfo.CurrentCulture),
@@ -104,13 +105,6 @@ namespace Lis.Test.Integration.Common
                 Category = new CodeableConcept(Systems.CONDITION_CATEGORY, Guid.NewGuid().ToString()),
                 ClinicalStatus = Condition.ConditionClinicalStatus.Confirmed,
                 Notes = "Condition notes",
-                //DueTo = new List<Condition.ConditionDueToComponent>
-                //{
-                //    new Condition.ConditionDueToComponent
-                //    {
-                //        Target = 
-                //    }
-                //}
             };
 
             return condition;
@@ -122,7 +116,7 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.MIS_IDENTIFIER, Guid.NewGuid().ToString())
+                    new Identifier(Systems.MIS_CASE_IDENTIFIER, Guid.NewGuid().ToString())
                 },
                 Type = new List<CodeableConcept>
                 {
@@ -380,8 +374,11 @@ namespace Lis.Test.Integration.Common
             return new Observation
             {
                 Id = Guid.NewGuid().ToString(),
+                Code = new CodeableConcept(Systems.OBSERVATION_LOINC, Guid.NewGuid().ToString()),
+                Comments = "Комментарии",
                 Issued = DateTime.Now,
                 Status = Observation.ObservationStatus.Amended,
+                Method = new CodeableConcept(Systems.OBSERVATION_METHOD, Guid.NewGuid().ToString()),
                 Performer = new List<ResourceReference> { FhirHelper.CreateBundleReference(practitioner) },
                 ReferenceRange = new List<Observation.ObservationReferenceRangeComponent>
                 {
@@ -406,6 +403,7 @@ namespace Lis.Test.Integration.Common
                 Subject = orderSubject,
                 Performer = FhirHelper.CreateBundleReference(practitioner1),
                 RequestDetail = new List<ResourceReference>{detail},
+                //RequestDetail = new List<ResourceReference> { new ResourceReference { Reference = "/DiagnosticOrder/41b2a8eb-2447-47d6-92a1-286995276841" } },
                 Conclusion = "Заключение",
                 PresentedForm = new List<Attachment>
                 {
@@ -493,11 +491,12 @@ namespace Lis.Test.Integration.Common
         {
             return new OrderResponse
             {
-                Identifier = new List<Identifier> { order.Identifier.First() },
+                Identifier = new List<Identifier> { new Identifier(Systems.LIS_IDENTIFIER, Guid.NewGuid().ToString()) },
                 Request = FhirHelper.CreateReference(order),
                 Date = DateTime.Now.ToString(CultureInfo.CurrentCulture),
                 Who = order.Source,
                 OrderStatus_ = OrderResponse.OrderStatus.Completed,
+                Description = "Комментарий к заказу",
                 Fulfillment = reports.Select(FhirHelper.CreateBundleReference).ToList()
             };
         }
@@ -510,6 +509,7 @@ namespace Lis.Test.Integration.Common
                 {
                     new Identifier(Systems.PRACTITIONER_IDENTIFIER, Guid.NewGuid().ToString())
                 },
+                Id = Guid.NewGuid().ToString(),
                 Name = new HumanName
                 {
                     Family = new List<string> { "Петров" },
