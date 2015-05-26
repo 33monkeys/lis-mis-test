@@ -60,7 +60,21 @@ namespace Lis.Test.Integration.Common
                 }
             };
 
-            return FhirClient.Create(practitioner);
+            try
+            {
+                return FhirClient.Create(practitioner);
+
+            }
+            catch (FhirOperationException ex)
+            {
+                var st = ex.StackTrace;
+                foreach (var operationOutcomeIssueComponent in ex.Outcome.Issue)
+                {
+                    
+                }
+            }
+
+            return null;
         }
 
         public static Specimen GetSpecimen(Patient patient)

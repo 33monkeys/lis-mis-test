@@ -106,7 +106,6 @@ D:\source\Lis.Test\bin\Debug\Lis.Data.pdb
 D:\source\Lis.Test\bin\Debug\Microsoft.Practices.Unity.xml
 D:\source\Lis.Test\bin\Debug\System.Net.Http.Formatting.xml
 D:\source\Lis.Test\bin\Debug\System.Web.Http.xml
-D:\source\lis-fhir-tests\obj\Debug\Lis.Test.csprojResolveAssemblyReference.cache
 D:\source\lis-fhir-tests\obj\Debug\Lis.Test.dll
 D:\source\lis-fhir-tests\bin\Debug\Iteration-2\Data\Resources\Invalid\DiagnosticOrder.json
 D:\source\lis-fhir-tests\bin\Debug\Iteration-2\Data\Resources\Invalid\Encounter.json
@@ -146,3 +145,4 @@ D:\source\lis-fhir-tests\bin\Debug\Hl7.Fhir.Core.pdb
 D:\source\lis-fhir-tests\bin\Debug\Hl7.Fhir.Core.xml
 D:\source\lis-fhir-tests\bin\Debug\RestSharp.xml
 D:\source\lis-fhir-tests\obj\Debug\Lis.Test.pdb
+D:\source\lis-fhir-tests\obj\Debug\Lis.Test.csprojResolveAssemblyReference.cache
