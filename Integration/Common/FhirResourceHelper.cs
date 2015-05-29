@@ -124,7 +124,7 @@ namespace Lis.Test.Integration.Common
             return condition;
         }
 
-        public static Encounter CreateEncounter(Patient patient, Condition condition)
+        public static Encounter CreateEncounter(Patient patient, Condition condition, Organization orderOrganization)
         {
             var encounter = new Encounter
             {
@@ -143,7 +143,8 @@ namespace Lis.Test.Integration.Common
                 Reason = new List<CodeableConcept>
                 {
                     new CodeableConcept(Systems.REASON_CODE, Guid.NewGuid().ToString())
-                }
+                },
+                ServiceProvider = FhirHelper.CreateReference(orderOrganization),
             };
 
             return FhirClient.Create(encounter);
@@ -190,6 +191,22 @@ namespace Lis.Test.Integration.Common
                         Code = new CodeableConcept
                         {
                             Text = "Услуга 1",
+                            Coding = new List<Coding>
+                            {
+                                new Coding(Systems.DIAGNOSTIC_ORDER_CODE, Guid.NewGuid().ToString()),
+                            },
+                            Extension = new List<Extension>
+                            {
+                                new Extension(Systems.DIAGNOSTIC_ORDER_FINANCIAL_EXTENSION, new CodeableConcept(Systems.FINANCIAL, Guid.NewGuid().ToString())),
+                                new Extension(Systems.DIAGNOSTIC_ORDER_INSURANCE_EXTENSION, new ResourceReference{Reference = Guid.NewGuid().ToString()})
+                            }
+                        },
+                    },
+                    new DiagnosticOrder.DiagnosticOrderItemComponent
+                    {
+                        Code = new CodeableConcept
+                        {
+                            Text = "Услуга 2",
                             Coding = new List<Coding>
                             {
                                 new Coding(Systems.DIAGNOSTIC_ORDER_CODE, Guid.NewGuid().ToString()),

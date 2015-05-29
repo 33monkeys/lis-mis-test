@@ -49,6 +49,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\Hl7.Fhir.DSTU2.0.50.0\lib\net45\Hl7.Fhir.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.LoadTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Monads.NET">
       <HintPath>..\packages\Monads.NET.1.0.3\lib\net40\Monads.NET.dll</HintPath>
     </Reference>
@@ -99,6 +101,7 @@
     <Compile Include="OrderBundleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StructureDefinition\StructureDefinition.cs" />
+    <Compile Include="Utility\Class1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -193,6 +196,7 @@
     <None Include="Transaction\valid-transaction.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="WebTests\IemkProxy.webtest" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

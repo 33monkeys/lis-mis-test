@@ -25,7 +25,7 @@ namespace Lis.Test.Integration.Common
 
             var condition = FhirResourceHelper.GetCondition(patient);
 
-            var encounter = FhirResourceHelper.CreateEncounter(patient, condition);
+            var encounter = FhirResourceHelper.CreateEncounter(patient, condition, orderOrganization);
 
             var observation = FhirResourceHelper.GetObservation();
             var observation1 = FhirResourceHelper.GetObservation();
