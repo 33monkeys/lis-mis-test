@@ -234,6 +234,13 @@ namespace Lis.Test.Integration.Common
                 Value = new Quantity
                 {
                     Value = 10,
+                },
+                ReferenceRange = new List<Observation.ObservationReferenceRangeComponent>
+                {
+                    new Observation.ObservationReferenceRangeComponent
+                    {
+                        Text = "dkjflskdj",
+                    }
                 }
             };
             return observation;
