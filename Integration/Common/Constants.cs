@@ -7,8 +7,16 @@ namespace Lis.Test.Integration.Common
 {
     public class Constants
     {
-        public const string Endpoint = "http://fhir-demo.zdrav.netrika.ru/fhir";
-        //public const string Endpoint = "http://localhost:50883/fhir";
+        //public const string Endpoint = "http://fhir.zdrav.netrika.ru/fhir";
+        public const string Endpoint = "http://localhost:50883/fhir";
+
+        public const string TerminologyEndpoint = "http://localhost:50883/term";
+
+        public const string DictionaryEndpoint = "http://localhost:50883/dict";
+
+        public const string Mkb10DictionaryName = "mkb10";
+
+        public const string Mkb10DictionarySystem = "http://netrika.ru/mkb10-inner";
 
         public static string LisOrderStructureDefinitionReference
         {
