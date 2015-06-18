@@ -150,3 +150,4 @@ D:\source\lis-fhir-tests\bin\Debug\Terminology\mkb10.csv
 D:\source\lis-fhir-tests\bin\Debug\Terminology\Terminology.webtest
 D:\source\lis-fhir-tests\bin\Debug\Справочник.xml
 D:\source\lis-fhir-tests\bin\Debug\Terminology\mkb10_valid.csv
+D:\source\lis-fhir-tests\bin\Debug\Operations\GetResults.webtest

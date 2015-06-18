@@ -29,6 +29,14 @@ namespace Lis.Test.Integration.Common
                 Identifier = new List<Identifier>{new Identifier(Systems.PATIENT_PASSPORT, "165516")},
                 Gender = AdministrativeGender.Male,
                 BirthDate = DateTime.Today.AddYears(-54).ToString(CultureInfo.CurrentCulture),
+                Name = new List<HumanName>
+                {
+                    new HumanName
+                    {
+                        Family = new List<string>{"Петров"},
+                        Given = new List<string>{"Петр", "Петрович"}
+                    }
+                }
             };
             return FhirClient.Create(patient);
         }
@@ -137,7 +145,7 @@ namespace Lis.Test.Integration.Common
                     new CodeableConcept(Systems.ENCOUNTER_TYPE, Guid.NewGuid().ToString())
                 },
                 Class = Encounter.EncounterClass.Outpatient,
-                Status = Encounter.EncounterState.Planned,
+                Status = Encounter.EncounterState.Arrived,
                 Patient = FhirHelper.CreateReference(patient),
                 Indication = new List<ResourceReference> {new ResourceReference{Reference = condition.Id}},
                 Reason = new List<CodeableConcept>
@@ -183,7 +191,7 @@ namespace Lis.Test.Integration.Common
                     FhirHelper.CreateBundleReference(specimen),
                     FhirHelper.CreateBundleReference(specimen1)
                 },
-                Status = DiagnosticOrder.DiagnosticOrderStatus.Proposed,
+                Status = DiagnosticOrder.DiagnosticOrderStatus.Requested,
                 Item = new List<DiagnosticOrder.DiagnosticOrderItemComponent>
                 {
                     new DiagnosticOrder.DiagnosticOrderItemComponent
@@ -230,7 +238,7 @@ namespace Lis.Test.Integration.Common
             {
                 Id = Guid.NewGuid().ToString(),
                 Code = new CodeableConcept(Systems.OBSERVATION_NAME, Guid.NewGuid().ToString()),
-                Status = Observation.ObservationStatus.Registered,
+                Status = Observation.ObservationStatus.Final,
                 Value = new Quantity
                 {
                     Value = 10,
@@ -415,7 +423,7 @@ namespace Lis.Test.Integration.Common
                 Code = new CodeableConcept(Systems.OBSERVATION_LOINC, Guid.NewGuid().ToString()),
                 Comments = "Комментарии",
                 Issued = DateTime.Now,
-                Status = Observation.ObservationStatus.Amended,
+                Status = Observation.ObservationStatus.Final,
                 Method = new CodeableConcept(Systems.OBSERVATION_METHOD, Guid.NewGuid().ToString()),
                 Performer = new List<ResourceReference> { FhirHelper.CreateBundleReference(practitioner) },
                 ReferenceRange = new List<Observation.ObservationReferenceRangeComponent>
