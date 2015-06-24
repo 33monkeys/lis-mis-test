@@ -1,9 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using FhirNetApiExtension;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
@@ -15,11 +22,11 @@ namespace Lis.Test.Integration.Common
 {
     public class FhirResourceHelper
     {
-        public static FhirClient FhirClient { get; set; }
+        public static N3FhirClient FhirClient { get; set; }
 
         static FhirResourceHelper()
         {
-            FhirClient = new FhirClient(Constants.Endpoint);
+            FhirClient = new N3FhirClient(Constants.Endpoint, new N3Credentials(Constants.TestToken));
         }
 
         public static Patient CreatePatient()
@@ -453,7 +460,7 @@ namespace Lis.Test.Integration.Common
                 Conclusion = "Заключение",
                 PresentedForm = new List<Attachment>
                 {
-                    new Attachment {Hash = Encoding.UTF8.GetBytes("hash"), Data = Encoding.UTF8.GetBytes("data")}
+                    new Attachment {Hash = Encoding.UTF8.GetBytes("hash"), Data = LoadSignedXml()}
                 },
                 Result = new List<ResourceReference>
                 {
@@ -461,6 +468,45 @@ namespace Lis.Test.Integration.Common
                     FhirHelper.CreateBundleReference(observation2),
                 }
             };
+        }
+
+        private static byte[] LoadSignedXml()
+        {
+            var cspParams = new CspParameters { KeyContainerName = "XML_DSIG_RSA_KEY" };
+            var rsaKey = new RSACryptoServiceProvider(cspParams);
+
+            var xmlDoc = new XmlDocument { PreserveWhitespace = true };
+            xmlDoc.LoadXml(File.ReadAllText("RsaXmlAttachment.xml"));
+
+            SignXml(xmlDoc, rsaKey);
+            xmlDoc.Save("out.xml");
+            var xmlString = xmlDoc.OuterXml;
+            //var xmlString = File.ReadAllText("RsaSignedAttachment.xml");
+            var xmlStringBytes = Encoding.UTF8.GetBytes(xmlString);
+            var base64String = Convert.ToBase64String(xmlStringBytes);
+            var base64Bytes = Encoding.UTF8.GetBytes(base64String);
+            return base64Bytes;
+        }
+
+        private static void SignXml(XmlDocument xmlDoc, AsymmetricAlgorithm key)
+        {
+            if (xmlDoc == null)
+                throw new ArgumentException("xmlDoc");
+            if (key == null)
+                throw new ArgumentException("key");
+
+            var signedXml = new SignedXml(xmlDoc) {SigningKey = key};
+
+            var reference = new Reference { Uri = "#presented-form" };
+
+            var env = new XmlDsigEnvelopedSignatureTransform();
+            reference.AddTransform(env);
+            signedXml.AddReference(reference);
+            signedXml.ComputeSignature();
+            var xmlDigitalSignature = signedXml.GetXml();
+            xmlDoc.DocumentElement.AppendChild(xmlDoc.ImportNode(xmlDigitalSignature, true));
+
+            xmlDoc.Save("out-signed-xml.xml");
         }
 
         public static Parameters GetOrderOperation(string sourceCode = null, string targetCode = null, string barcode = null)
@@ -490,6 +536,7 @@ namespace Lis.Test.Integration.Common
 
             var jsonToSend = FhirSerializer.SerializeToJson(parameters);
             request.Parameters.Clear();
+            request.AddParameter("Authorization", (new N3Credentials(Constants.TestToken)).ToString(), ParameterType.HttpHeader);
             request.AddParameter("application/json; charset=utf-8", jsonToSend, ParameterType.RequestBody);
             request.AddParameter("_format", "json", ParameterType.QueryString);
             request.RequestFormat = DataFormat.Json;
@@ -525,6 +572,7 @@ namespace Lis.Test.Integration.Common
 
             var jsonToSend = FhirSerializer.SerializeToJson(parameters);
             request.Parameters.Clear();
+            request.AddParameter("Authorization", (new N3Credentials(Constants.TestToken)).ToString(), ParameterType.HttpHeader);
             request.AddParameter("application/json; charset=utf-8", jsonToSend, ParameterType.RequestBody);
             request.AddParameter("_format", "json", ParameterType.QueryString);
             request.RequestFormat = DataFormat.Json;

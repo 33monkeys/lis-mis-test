@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FhirNetApiExtension;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Lis.Test.Integration.Common;
@@ -19,7 +20,7 @@ namespace Lis.Test.Integration
 
         public List<Bundle> Orders { get; set; }
 
-        public FhirClient FhirClient { get; set; }
+        public N3FhirClient FhirClient { get; set; }
 
         public IntegrationTest()
         {
@@ -29,7 +30,7 @@ namespace Lis.Test.Integration
                 Orders.Add(IntegrationHelper.CreateRandomLabOrder());
             }
 
-            FhirClient = new FhirClient(Constants.Endpoint);
+            FhirClient = new N3FhirClient(Constants.Endpoint, new N3Credentials(Constants.TestToken));
         }
 
         [TestFixtureSetUp]

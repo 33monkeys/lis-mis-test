@@ -45,9 +45,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Fhirbase.Net.1.0.4-alpha\lib\net45\Fhirbase.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.Core, Version=0.50.0.25157, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
+    <Reference Include="FhirNetApiExtension">
+      <HintPath>packages\fhir-net-api-extension.1.0.1\lib\net45\FhirNetApiExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.Fhir.Core, Version=0.50.1.30062, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\Hl7.Fhir.DSTU2.0.50.0\lib\net45\Hl7.Fhir.Core.dll</HintPath>
+      <HintPath>packages\Hl7.Fhir.DSTU2.0.50.1\lib\net45\Hl7.Fhir.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.LoadTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -74,6 +77,8 @@
       <HintPath>packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -86,6 +91,7 @@
   <ItemGroup>
     <Compile Include="GetOrder\GetOrderValidationTest.cs" />
     <Compile Include="IemkProxyCoded.cs" />
+    <Compile Include="Integration\StatusTest.cs" />
     <Compile Include="Integration\Common\Systems.cs" />
     <Compile Include="IpResolver.cs" />
     <Compile Include="FhirbaseApiTest.cs" />
@@ -219,6 +225,13 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="RsaSignedAttachment.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="RsaXmlAttachment.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Справочник.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -603,6 +603,13 @@
             <param name="includeDeleted">Whether to include deleted entries in the search. Optional.</param>
             <returns>A list of Resources with the given identity, or an empty list if none were found.</returns>
         </member>
+        <member name="M:Hl7.Fhir.Model.BundleExtensions.IsDeleted(Hl7.Fhir.Model.Bundle.BundleEntryComponent)">
+            <summary>
+            Identifies if this entry is a deleted transaction (entry.Transaction.Method == DELETE)
+            </summary>
+            <param name="entry"></param>
+            <returns></returns>
+        </member>
         <member name="M:Hl7.Fhir.Model.BundleExtensions.FindEntry(Hl7.Fhir.Model.Bundle,System.String,System.String,System.String,System.Boolean)">
             <summary>
             Find all entries in a Bundle with the given type/id/version
@@ -723,6 +730,356 @@
         <member name="P:Hl7.Fhir.Model.Coding.Primary">
             <summary>
             If this code was chosen directly by the user
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="T:Hl7.Fhir.Model.ConceptMap">
+            <summary>
+            A map from one set of concepts to one or more other concepts
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.DomainResource">
+            <summary>
+            A resource with narrative, extensions, and contained resources
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.DomainResource.Text">
+            <summary>
+            Text summary of the resource, for human interpretation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.DomainResource.Contained">
+            <summary>
+            Contained, inline Resources
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.DomainResource.Extension">
+            <summary>
+            Additional Content defined by implementations
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.DomainResource.ModifierExtension">
+            <summary>
+            Extensions that cannot be ignored
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.UrlElement">
+            <summary>
+            Globally unique logical id for concept map
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Url">
+            <summary>
+            Globally unique logical id for concept map
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Identifier">
+            <summary>
+            Additional identifier for the concept map
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.VersionElement">
+            <summary>
+            Logical id for this version of the concept map
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Version">
+            <summary>
+            Logical id for this version of the concept map
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.NameElement">
+            <summary>
+            Informal name for this concept map
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Name">
+            <summary>
+            Informal name for this concept map
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.UseContext">
+            <summary>
+            Content intends to support these contexts
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.PublisherElement">
+            <summary>
+            Name of the publisher (Organization or individual)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Publisher">
+            <summary>
+            Name of the publisher (Organization or individual)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Contact">
+            <summary>
+            Contact details of the publisher
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.DescriptionElement">
+            <summary>
+            Human language description of the concept map
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Description">
+            <summary>
+            Human language description of the concept map
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.RequirementsElement">
+            <summary>
+            Why is this needed?
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Requirements">
+            <summary>
+            Why is this needed?
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.CopyrightElement">
+            <summary>
+            Use and/or Publishing restrictions
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Copyright">
+            <summary>
+            Use and/or Publishing restrictions
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.StatusElement">
+            <summary>
+            draft | active | retired
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Status">
+            <summary>
+            draft | active | retired
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ExperimentalElement">
+            <summary>
+            If for testing purposes, not real usage
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Experimental">
+            <summary>
+            If for testing purposes, not real usage
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.DateElement">
+            <summary>
+            Date for given status
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Date">
+            <summary>
+            Date for given status
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Source">
+            <summary>
+            Identifies the source of the concepts which are being mapped
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Target">
+            <summary>
+            Provides context to the mappings
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.Element">
+            <summary>
+            Mappings for a concept from the source set
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence">
+            <summary>
+            The degree of equivalence between concepts
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Equivalent">
+            <summary>
+            The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Equal">
+            <summary>
+            The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Wider">
+            <summary>
+            The target mapping is wider in meaning than the source concept.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Subsumes">
+            <summary>
+            The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Narrower">
+            <summary>
+            The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Specialises">
+            <summary>
+            The target mapping specialises the meaning of the source concept (e.g. the target is-a source).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Inexact">
+            <summary>
+            The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Unmatched">
+            <summary>
+            There is no match for this concept in the destination concept system.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Disjoint">
+            <summary>
+            This is an explicit assertion that there is no mapping between the source and target concept.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapContactComponent.NameElement">
+            <summary>
+            Name of a individual to contact
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapContactComponent.Name">
+            <summary>
+            Name of a individual to contact
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapContactComponent.Telecom">
+            <summary>
+            Contact details for individual or publisher
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.CodeSystemElement">
+            <summary>
+            Code System (if value set crosses code systems)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.CodeSystem">
+            <summary>
+            Code System (if value set crosses code systems)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.CodeElement">
+            <summary>
+            Identifies element being mapped
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.Code">
+            <summary>
+            Identifies element being mapped
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.DependsOn">
+            <summary>
+            Other elements required for this mapping (from context)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.Map">
+            <summary>
+            Target of this map
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CodeSystemElement">
+            <summary>
+            System of the target (if necessary)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CodeSystem">
+            <summary>
+            System of the target (if necessary)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CodeElement">
+            <summary>
+            Code that identifies the target element
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Code">
+            <summary>
+            Code that identifies the target element
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.EquivalenceElement">
+            <summary>
+            equivalent | equal | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Equivalence">
+            <summary>
+            equivalent | equal | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CommentsElement">
+            <summary>
+            Description of status/issues in mapping
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Comments">
+            <summary>
+            Description of status/issues in mapping
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Product">
+            <summary>
+            Other concepts that this mapping also produces
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.ElementElement">
+            <summary>
+            Reference to element/field/valueset mapping depends on
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.Element">
+            <summary>
+            Reference to element/field/valueset mapping depends on
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.CodeSystemElement">
+            <summary>
+            Code System (if necessary)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.CodeSystem">
+            <summary>
+            Code System (if necessary)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.CodeElement">
+            <summary>
+            Value of the referenced element
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.Code">
+            <summary>
+            Value of the referenced element
             </summary>
             <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
         </member>
@@ -899,31 +1256,6 @@
         <member name="T:Hl7.Fhir.Model.Appointment">
             <summary>
             A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s)
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.DomainResource">
-            <summary>
-            A resource with narrative, extensions, and contained resources
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.DomainResource.Text">
-            <summary>
-            Text summary of the resource, for human interpretation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.DomainResource.Contained">
-            <summary>
-            Contained, inline Resources
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.DomainResource.Extension">
-            <summary>
-            Additional Content defined by implementations
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.DomainResource.ModifierExtension">
-            <summary>
-            Extensions that cannot be ignored
             </summary>
         </member>
         <member name="P:Hl7.Fhir.Model.Appointment.Identifier">
@@ -10543,6 +10875,1495 @@
             A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store "maiden" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.
             </summary>
         </member>
+        <member name="T:Hl7.Fhir.Model.ValueSet">
+            <summary>
+            A set of codes drawn from one or more code systems
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.UrlElement">
+            <summary>
+            Globally unique logical id for  value set
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Url">
+            <summary>
+            Globally unique logical id for  value set
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Identifier">
+            <summary>
+            Additional identifier for the value set (v2 / CDA)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.VersionElement">
+            <summary>
+            Logical id for this version of the value set
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Version">
+            <summary>
+            Logical id for this version of the value set
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.NameElement">
+            <summary>
+            Informal name for this value set
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Name">
+            <summary>
+            Informal name for this value set
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.UseContext">
+            <summary>
+            Content intends to support these contexts
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ImmutableElement">
+            <summary>
+            Indicates whether or not any change to the content logical definition may occur
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Immutable">
+            <summary>
+            Indicates whether or not any change to the content logical definition may occur
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.PublisherElement">
+            <summary>
+            Name of the publisher (Organization or individual)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Publisher">
+            <summary>
+            Name of the publisher (Organization or individual)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Contact">
+            <summary>
+            Contact details of the publisher
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.DescriptionElement">
+            <summary>
+            Human language description of the value set
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Description">
+            <summary>
+            Human language description of the value set
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.RequirementsElement">
+            <summary>
+            Why is this needed?
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Requirements">
+            <summary>
+            Why is this needed?
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.CopyrightElement">
+            <summary>
+            Use and/or Publishing restrictions
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Copyright">
+            <summary>
+            Use and/or Publishing restrictions
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.StatusElement">
+            <summary>
+            draft | active | retired
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Status">
+            <summary>
+            draft | active | retired
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ExperimentalElement">
+            <summary>
+            If for testing purposes, not real usage
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Experimental">
+            <summary>
+            If for testing purposes, not real usage
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ExtensibleElement">
+            <summary>
+            Whether this is intended to be used with an extensible binding
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Extensible">
+            <summary>
+            Whether this is intended to be used with an extensible binding
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.DateElement">
+            <summary>
+            Date for given status
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Date">
+            <summary>
+            Date for given status
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.LockedDateElement">
+            <summary>
+            Fixed date for all referenced code systems and value sets
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.LockedDate">
+            <summary>
+            Fixed date for all referenced code systems and value sets
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Define">
+            <summary>
+            When value set defines its own codes
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Compose">
+            <summary>
+            When value set includes codes from elsewhere
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.Expansion">
+            <summary>
+            Used when the value set is "expanded"
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.ValueSet.FilterOperator">
+            <summary>
+            The kind of operation to perform as a part of a property based filter
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.Equal">
+            <summary>
+            The specified property of the code equals the provided value.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.IsA">
+            <summary>
+            Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.IsNotA">
+            <summary>
+            The specified property of the code does not have an is-a relationship with the provided value.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.Regex">
+            <summary>
+            The specified property of the code  matches the regex specified in the provided value.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.In">
+            <summary>
+            The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.NotIn">
+            <summary>
+            The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.SystemElement">
+            <summary>
+            URI to identify the code system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.System">
+            <summary>
+            URI to identify the code system
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.VersionElement">
+            <summary>
+            Version of this system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.Version">
+            <summary>
+            Version of this system
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.CaseSensitiveElement">
+            <summary>
+            If code comparison is case sensitive
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.CaseSensitive">
+            <summary>
+            If code comparison is case sensitive
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.Concept">
+            <summary>
+            Concepts in the code system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.SystemElement">
+            <summary>
+            System value for the code
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.System">
+            <summary>
+            System value for the code
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.AbstractElement">
+            <summary>
+            If user cannot select this entry
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Abstract">
+            <summary>
+            If user cannot select this entry
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.VersionElement">
+            <summary>
+            Version in which this code / display is defined
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Version">
+            <summary>
+            Version in which this code / display is defined
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.CodeElement">
+            <summary>
+            Code - if blank, this is not a choosable code
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Code">
+            <summary>
+            Code - if blank, this is not a choosable code
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.DisplayElement">
+            <summary>
+            User display for the concept
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Display">
+            <summary>
+            User display for the concept
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Contains">
+            <summary>
+            Codes contained in this concept
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.LanguageElement">
+            <summary>
+            Language of the designation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.Language">
+            <summary>
+            Language of the designation
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.Use">
+            <summary>
+            Details how this designation would be used
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.ValueElement">
+            <summary>
+            The text value for this designation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.Value">
+            <summary>
+            The text value for this designation
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.CodeElement">
+            <summary>
+            Code that identifies concept
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Code">
+            <summary>
+            Code that identifies concept
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.AbstractElement">
+            <summary>
+            If this code is not for use as a real concept
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Abstract">
+            <summary>
+            If this code is not for use as a real concept
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.DisplayElement">
+            <summary>
+            Text to Display to the user
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Display">
+            <summary>
+            Text to Display to the user
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.DefinitionElement">
+            <summary>
+            Formal Definition
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Definition">
+            <summary>
+            Formal Definition
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Designation">
+            <summary>
+            Additional representations for the concept
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Concept">
+            <summary>
+            Child Concepts (is-a / contains)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.SystemElement">
+            <summary>
+            The system the codes come from
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.System">
+            <summary>
+            The system the codes come from
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.VersionElement">
+            <summary>
+            Specific version of the code system referred to
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.Version">
+            <summary>
+            Specific version of the code system referred to
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.Concept">
+            <summary>
+            A concept defined in the system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.Filter">
+            <summary>
+            Select codes/concepts by their properties (including relationships)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.CodeElement">
+            <summary>
+            Code or expression from system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.Code">
+            <summary>
+            Code or expression from system
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.DisplayElement">
+            <summary>
+            Test to display for this code for this value set
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.Display">
+            <summary>
+            Test to display for this code for this value set
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.Designation">
+            <summary>
+            Additional representations for this valueset
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.PropertyElement">
+            <summary>
+            A property defined by the code system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.Property">
+            <summary>
+            A property defined by the code system
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.OpElement">
+            <summary>
+            = | is-a | is-not-a | regex | in | not-in
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.Op">
+            <summary>
+            = | is-a | is-not-a | regex | in | not-in
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.ValueElement">
+            <summary>
+            Code from the system, or regex criteria
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.Value">
+            <summary>
+            Code from the system, or regex criteria
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetContactComponent.NameElement">
+            <summary>
+            Name of a individual to contact
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetContactComponent.Name">
+            <summary>
+            Name of a individual to contact
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetContactComponent.Telecom">
+            <summary>
+            Contact details for individual or publisher
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionParameterComponent.NameElement">
+            <summary>
+            Name as assigned by server
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionParameterComponent.Name">
+            <summary>
+            Name as assigned by server
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionParameterComponent.Value">
+            <summary>
+            Value of the parameter
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.ImportElement">
+            <summary>
+            Import the contents of another value set
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.Import">
+            <summary>
+            Import the contents of another value set
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.Include">
+            <summary>
+            Include one or more codes from a code system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.Exclude">
+            <summary>
+            Explicitly exclude codes
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.IdentifierElement">
+            <summary>
+            Uniquely identifies this expansion
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Identifier">
+            <summary>
+            Uniquely identifies this expansion
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.TimestampElement">
+            <summary>
+            Time valueset expansion happened
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Timestamp">
+            <summary>
+            Time valueset expansion happened
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Parameter">
+            <summary>
+            Parameter that controlled the expansion process
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Contains">
+            <summary>
+            Codes in the value set
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance">
+            <summary>
+            A conformance statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.UrlElement">
+            <summary>
+            Logical uri to reference this statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Url">
+            <summary>
+            Logical uri to reference this statement
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.VersionElement">
+            <summary>
+            Logical id for this version of the statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Version">
+            <summary>
+            Logical id for this version of the statement
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.NameElement">
+            <summary>
+            Informal name for this conformance statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Name">
+            <summary>
+            Informal name for this conformance statement
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.PublisherElement">
+            <summary>
+            Name of the publisher (Organization or individual)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Publisher">
+            <summary>
+            Name of the publisher (Organization or individual)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Contact">
+            <summary>
+            Contact details of the publisher
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.DescriptionElement">
+            <summary>
+            Human description of the conformance statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Description">
+            <summary>
+            Human description of the conformance statement
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.RequirementsElement">
+            <summary>
+            Why is this needed?
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Requirements">
+            <summary>
+            Why is this needed?
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.CopyrightElement">
+            <summary>
+            Use and/or Publishing restrictions
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Copyright">
+            <summary>
+            Use and/or Publishing restrictions
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.StatusElement">
+            <summary>
+            draft | active | retired
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Status">
+            <summary>
+            draft | active | retired
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ExperimentalElement">
+            <summary>
+            If for testing purposes, not real usage
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Experimental">
+            <summary>
+            If for testing purposes, not real usage
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.DateElement">
+            <summary>
+            Publication Date(/time)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Date">
+            <summary>
+            Publication Date(/time)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Software">
+            <summary>
+            Software that is covered by this conformance statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Implementation">
+            <summary>
+            If this describes a specific instance
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.FhirVersionElement">
+            <summary>
+            FHIR Version
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.FhirVersion">
+            <summary>
+            FHIR Version
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.AcceptUnknownElement">
+            <summary>
+            True if application accepts unknown elements
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.AcceptUnknown">
+            <summary>
+            True if application accepts unknown elements
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.FormatElement">
+            <summary>
+            formats supported (xml | json | mime type)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Format">
+            <summary>
+            formats supported (xml | json | mime type)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Profile">
+            <summary>
+            Profiles supported by the system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Rest">
+            <summary>
+            If the endpoint is a RESTful one
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Messaging">
+            <summary>
+            If messaging is supported
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.Document">
+            <summary>
+            Document definition
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.SystemRestfulInteraction">
+            <summary>
+            Operations supported by REST at the system level
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.DocumentMode">
+            <summary>
+            Whether the application produces or consumes documents
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.DocumentMode.Producer">
+            <summary>
+            The application produces documents of the specified type.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.DocumentMode.Consumer">
+            <summary>
+            The application consumes documents of the specified type.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy">
+            <summary>
+            How the system supports versioning for a resource
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy.NoVersion">
+            <summary>
+            VersionId meta-property is not suppoerted (server) or used (client).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy.Versioned">
+            <summary>
+            VersionId meta-property is suppoerted (server) or used (client).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy.VersionedUpdate">
+            <summary>
+            VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.RestfulConformanceMode">
+            <summary>
+            The mode of a RESTful conformance statement
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulConformanceMode.Client">
+            <summary>
+            The application acts as a client for this resource.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulConformanceMode.Server">
+            <summary>
+            The application acts as a server for this resource.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.MessageTransport">
+            <summary>
+            The protocol used for message transport
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.MessageTransport.Http">
+            <summary>
+            The application sends or receives messages using HTTP POST (may be over http or https).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.MessageTransport.Ftp">
+            <summary>
+            The application sends or receives messages using File Transfer Protocol.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.MessageTransport.Mllp">
+            <summary>
+            The application sends or receivers messages using HL7's Minimal Lower Level Protocol.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.TypeRestfulInteraction">
+            <summary>
+            Operations supported by REST at the type or instance level
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.ConformanceEventMode">
+            <summary>
+            The mode of a message conformance statement
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.ConformanceEventMode.Sender">
+            <summary>
+            The application sends requests and receives responses.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.ConformanceEventMode.Receiver">
+            <summary>
+            The application receives requests and sends responses.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory">
+            <summary>
+            The impact of the content of a message
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory.Consequence">
+            <summary>
+            The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory.Currency">
+            <summary>
+            The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory.Notification">
+            <summary>
+            The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.SearchParamType">
+            <summary>
+            Data types allowed to be used for search parameters
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Number">
+            <summary>
+            Search parameter SHALL be a number (a whole number, or a decimal).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Date">
+            <summary>
+            Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.String">
+            <summary>
+            Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Token">
+            <summary>
+            Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Reference">
+            <summary>
+            A reference to another resource.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Composite">
+            <summary>
+            A composite search parameter that combines a search on two values together.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Quantity">
+            <summary>
+            A search parameter that searches on a quantity.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Uri">
+            <summary>
+            A search parameter that searches on a URI (RFC 3986).
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Model.Conformance.RestfulSecurityService">
+            <summary>
+            Types of security services used with FHIR
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.OAuth">
+            <summary>
+            OAuth (see oauth.net).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.OAuth2">
+            <summary>
+            OAuth version 2 (see oauth.net).
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.NTLM">
+            <summary>
+            Microsoft NTLM Authentication.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.Basic">
+            <summary>
+            Basic authentication defined in HTTP specification.
+            </summary>
+        </member>
+        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.Kerberos">
+            <summary>
+            see http://www.ietf.org/rfc/rfc4120.txt.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.ModeElement">
+            <summary>
+            client | server
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Mode">
+            <summary>
+            client | server
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.DocumentationElement">
+            <summary>
+            General description of implementation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Documentation">
+            <summary>
+            General description of implementation
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Security">
+            <summary>
+            Information about security of implementation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Resource">
+            <summary>
+            Resource served on the REST interface
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Interaction">
+            <summary>
+            What operations are supported?
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Operation">
+            <summary>
+            Definition of an operation or a custom query
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.DocumentMailboxElement">
+            <summary>
+            How documents are accepted in /Mailbox
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.DocumentMailbox">
+            <summary>
+            How documents are accepted in /Mailbox
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.CompartmentElement">
+            <summary>
+            Compartments served/used by system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Compartment">
+            <summary>
+            Compartments served/used by system
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.NameElement">
+            <summary>
+            A name the software is known by
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.Name">
+            <summary>
+            A name the software is known by
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.VersionElement">
+            <summary>
+            Version covered by this statement
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.Version">
+            <summary>
+            Version covered by this statement
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.ReleaseDateElement">
+            <summary>
+            Date this version released
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.ReleaseDate">
+            <summary>
+            Date this version released
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.EndpointElement">
+            <summary>
+            Actual endpoint being described
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.Endpoint">
+            <summary>
+            Actual endpoint being described
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.ReliableCacheElement">
+            <summary>
+            Reliable Message Cache Length (min)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.ReliableCache">
+            <summary>
+            Reliable Message Cache Length (min)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.DocumentationElement">
+            <summary>
+            Messaging interface behavior details
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.Documentation">
+            <summary>
+            Messaging interface behavior details
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.Event">
+            <summary>
+            Declare support for this event
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.ModeElement">
+            <summary>
+            producer | consumer
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.Mode">
+            <summary>
+            producer | consumer
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.DocumentationElement">
+            <summary>
+            Description of document support
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.Documentation">
+            <summary>
+            Description of document support
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.Profile">
+            <summary>
+            Constraint on a resource used in the document
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.TypeElement">
+            <summary>
+            A resource type that is supported
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Type">
+            <summary>
+            A resource type that is supported
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Profile">
+            <summary>
+            What structural features are supported
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Interaction">
+            <summary>
+            What operations are supported?
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.VersioningElement">
+            <summary>
+            no-version | versioned | versioned-update
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Versioning">
+            <summary>
+            no-version | versioned | versioned-update
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ReadHistoryElement">
+            <summary>
+            Whether vRead can return past versions
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ReadHistory">
+            <summary>
+            Whether vRead can return past versions
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.UpdateCreateElement">
+            <summary>
+            If update can commit to a new identity
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.UpdateCreate">
+            <summary>
+            If update can commit to a new identity
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalCreateElement">
+            <summary>
+            If allows/uses conditional create
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalCreate">
+            <summary>
+            If allows/uses conditional create
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalUpdateElement">
+            <summary>
+            If allows/uses conditional update
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalUpdate">
+            <summary>
+            If allows/uses conditional update
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalDeleteElement">
+            <summary>
+            If allows/uses conditional delete
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalDelete">
+            <summary>
+            If allows/uses conditional delete
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.SearchIncludeElement">
+            <summary>
+            _include values supported by the server
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.SearchInclude">
+            <summary>
+            _include values supported by the server
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.SearchParam">
+            <summary>
+            Search params supported by implementation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.DescriptionElement">
+            <summary>
+            Describes this specific instance
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.Description">
+            <summary>
+            Describes this specific instance
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.UrlElement">
+            <summary>
+            Base URL for the installation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.Url">
+            <summary>
+            Base URL for the installation
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceContactComponent.NameElement">
+            <summary>
+            Name of a individual to contact
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceContactComponent.Name">
+            <summary>
+            Name of a individual to contact
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceContactComponent.Telecom">
+            <summary>
+            Contact details for individual or publisher
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Code">
+            <summary>
+            Event type
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.CategoryElement">
+            <summary>
+            Consequence | Currency | Notification
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Category">
+            <summary>
+            Consequence | Currency | Notification
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.ModeElement">
+            <summary>
+            sender | receiver
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Mode">
+            <summary>
+            sender | receiver
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Protocol">
+            <summary>
+            http | ftp | mllp +
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.FocusElement">
+            <summary>
+            Resource that's focus of message
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Focus">
+            <summary>
+            Resource that's focus of message
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Request">
+            <summary>
+            Profile that describes the request
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Response">
+            <summary>
+            Profile that describes the response
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.DocumentationElement">
+            <summary>
+            Endpoint-specific event documentation
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Documentation">
+            <summary>
+            Endpoint-specific event documentation
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.CodeElement">
+            <summary>
+            transaction | search-system | history-system
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.Code">
+            <summary>
+            transaction | search-system | history-system
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.DocumentationElement">
+            <summary>
+            Anything special about operation behavior
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.Documentation">
+            <summary>
+            Anything special about operation behavior
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.CodeElement">
+            <summary>
+            read | vread | update | delete | history-instance | validate | history-type | create | search-type
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.Code">
+            <summary>
+            read | vread | update | delete | history-instance | validate | history-type | create | search-type
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.DocumentationElement">
+            <summary>
+            Anything special about operation behavior
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.Documentation">
+            <summary>
+            Anything special about operation behavior
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.CorsElement">
+            <summary>
+            Adds CORS Headers (http://enable-cors.org/)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Cors">
+            <summary>
+            Adds CORS Headers (http://enable-cors.org/)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Service">
+            <summary>
+            OAuth | OAuth2 | NTLM | Basic | Kerberos
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.DescriptionElement">
+            <summary>
+            General description of how security works
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Description">
+            <summary>
+            General description of how security works
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Certificate">
+            <summary>
+            Certificates associated with security profiles
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.TypeElement">
+            <summary>
+            Mime type for certificate
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.Type">
+            <summary>
+            Mime type for certificate
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.BlobElement">
+            <summary>
+            Actual certificate
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.Blob">
+            <summary>
+            Actual certificate
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestOperationComponent.NameElement">
+            <summary>
+            Name by which the operation/query is invoked
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestOperationComponent.Name">
+            <summary>
+            Name by which the operation/query is invoked
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestOperationComponent.Definition">
+            <summary>
+            The defined operation/query
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.NameElement">
+            <summary>
+            Name of search parameter
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Name">
+            <summary>
+            Name of search parameter
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.DefinitionElement">
+            <summary>
+            Source of definition for parameter
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Definition">
+            <summary>
+            Source of definition for parameter
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.TypeElement">
+            <summary>
+            number | date | string | token | reference | composite | quantity | uri
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Type">
+            <summary>
+            number | date | string | token | reference | composite | quantity | uri
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.DocumentationElement">
+            <summary>
+            Server-specific usage
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Documentation">
+            <summary>
+            Server-specific usage
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.TargetElement">
+            <summary>
+            Types of resource (if a resource reference)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Target">
+            <summary>
+            Types of resource (if a resource reference)
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.ChainElement">
+            <summary>
+            Chained names supported
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Chain">
+            <summary>
+            Chained names supported
+            </summary>
+            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
+        </member>
         <member name="T:Hl7.Fhir.Model.Integer">
             <summary>
             Typed element containing the primitive integer
@@ -12336,331 +14157,6 @@
             Who attested the composition
             </summary>
         </member>
-        <member name="T:Hl7.Fhir.Model.ConceptMap">
-            <summary>
-            A map from one set of concepts to one or more other concepts
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.UrlElement">
-            <summary>
-            Globally unique logical id for concept map
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Url">
-            <summary>
-            Globally unique logical id for concept map
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Identifier">
-            <summary>
-            Additional identifier for the concept map
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.VersionElement">
-            <summary>
-            Logical id for this version of the concept map
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Version">
-            <summary>
-            Logical id for this version of the concept map
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.NameElement">
-            <summary>
-            Informal name for this concept map
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Name">
-            <summary>
-            Informal name for this concept map
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.UseContext">
-            <summary>
-            Content intends to support these contexts
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.PublisherElement">
-            <summary>
-            Name of the publisher (Organization or individual)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Publisher">
-            <summary>
-            Name of the publisher (Organization or individual)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Contact">
-            <summary>
-            Contact details of the publisher
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.DescriptionElement">
-            <summary>
-            Human language description of the concept map
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Description">
-            <summary>
-            Human language description of the concept map
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.RequirementsElement">
-            <summary>
-            Why is this needed?
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Requirements">
-            <summary>
-            Why is this needed?
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.CopyrightElement">
-            <summary>
-            Use and/or Publishing restrictions
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Copyright">
-            <summary>
-            Use and/or Publishing restrictions
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.StatusElement">
-            <summary>
-            draft | active | retired
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Status">
-            <summary>
-            draft | active | retired
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ExperimentalElement">
-            <summary>
-            If for testing purposes, not real usage
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Experimental">
-            <summary>
-            If for testing purposes, not real usage
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.DateElement">
-            <summary>
-            Date for given status
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Date">
-            <summary>
-            Date for given status
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Source">
-            <summary>
-            Identifies the source of the concepts which are being mapped
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Target">
-            <summary>
-            Provides context to the mappings
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.Element">
-            <summary>
-            Mappings for a concept from the source set
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence">
-            <summary>
-            The degree of equivalence between concepts
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Equivalent">
-            <summary>
-            The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Equal">
-            <summary>
-            The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identifical or irrelevant (i.e. intensionally identical).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Wider">
-            <summary>
-            The target mapping is wider in meaning than the source concept.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Subsumes">
-            <summary>
-            The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Narrower">
-            <summary>
-            The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Specialises">
-            <summary>
-            The target mapping specialises the meaning of the source concept (e.g. the target is-a source).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Inexact">
-            <summary>
-            The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when atempting to use these mappings operationally.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Unmatched">
-            <summary>
-            There is no match for this concept in the destination concept system.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ConceptMap.ConceptMapEquivalence.Disjoint">
-            <summary>
-            This is an explicit assertion that there is no mapping between the source and target concept.
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapContactComponent.NameElement">
-            <summary>
-            Name of a individual to contact
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapContactComponent.Name">
-            <summary>
-            Name of a individual to contact
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapContactComponent.Telecom">
-            <summary>
-            Contact details for individual or publisher
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.CodeSystemElement">
-            <summary>
-            Code System (if value set crosses code systems)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.CodeSystem">
-            <summary>
-            Code System (if value set crosses code systems)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.CodeElement">
-            <summary>
-            Identifies element being mapped
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.Code">
-            <summary>
-            Identifies element being mapped
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.DependsOn">
-            <summary>
-            Other elements required for this mapping (from context)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementComponent.Map">
-            <summary>
-            Target of this map
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CodeSystemElement">
-            <summary>
-            System of the target (if necessary)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CodeSystem">
-            <summary>
-            System of the target (if necessary)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CodeElement">
-            <summary>
-            Code that identifies the target element
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Code">
-            <summary>
-            Code that identifies the target element
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.EquivalenceElement">
-            <summary>
-            equivalent | equal | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Equivalence">
-            <summary>
-            equivalent | equal | wider | subsumes | narrower | specialises | inexact | unmatched | disjoint
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.CommentsElement">
-            <summary>
-            Description of status/issues in mapping
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Comments">
-            <summary>
-            Description of status/issues in mapping
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.ConceptMapElementMapComponent.Product">
-            <summary>
-            Other concepts that this mapping also produces
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.ElementElement">
-            <summary>
-            Reference to element/field/valueset mapping depends on
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.Element">
-            <summary>
-            Reference to element/field/valueset mapping depends on
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.CodeSystemElement">
-            <summary>
-            Code System (if necessary)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.CodeSystem">
-            <summary>
-            Code System (if necessary)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.CodeElement">
-            <summary>
-            Value of the referenced element
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ConceptMap.OtherElementComponent.Code">
-            <summary>
-            Value of the referenced element
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
         <member name="T:Hl7.Fhir.Model.Condition">
             <summary>
             Detailed information about conditions, problems or diagnoses
@@ -12848,926 +14344,6 @@
             <summary>
             Location - may include laterality
             </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance">
-            <summary>
-            A conformance statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.UrlElement">
-            <summary>
-            Logical uri to reference this statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Url">
-            <summary>
-            Logical uri to reference this statement
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.VersionElement">
-            <summary>
-            Logical id for this version of the statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Version">
-            <summary>
-            Logical id for this version of the statement
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.NameElement">
-            <summary>
-            Informal name for this conformance statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Name">
-            <summary>
-            Informal name for this conformance statement
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.PublisherElement">
-            <summary>
-            Name of the publisher (Organization or individual)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Publisher">
-            <summary>
-            Name of the publisher (Organization or individual)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Contact">
-            <summary>
-            Contact details of the publisher
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.DescriptionElement">
-            <summary>
-            Human description of the conformance statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Description">
-            <summary>
-            Human description of the conformance statement
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.RequirementsElement">
-            <summary>
-            Why is this needed?
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Requirements">
-            <summary>
-            Why is this needed?
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.CopyrightElement">
-            <summary>
-            Use and/or Publishing restrictions
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Copyright">
-            <summary>
-            Use and/or Publishing restrictions
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.StatusElement">
-            <summary>
-            draft | active | retired
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Status">
-            <summary>
-            draft | active | retired
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ExperimentalElement">
-            <summary>
-            If for testing purposes, not real usage
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Experimental">
-            <summary>
-            If for testing purposes, not real usage
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.DateElement">
-            <summary>
-            Publication Date(/time)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Date">
-            <summary>
-            Publication Date(/time)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Software">
-            <summary>
-            Software that is covered by this conformance statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Implementation">
-            <summary>
-            If this describes a specific instance
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.FhirVersionElement">
-            <summary>
-            FHIR Version
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.FhirVersion">
-            <summary>
-            FHIR Version
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.AcceptUnknownElement">
-            <summary>
-            True if application accepts unknown elements
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.AcceptUnknown">
-            <summary>
-            True if application accepts unknown elements
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.FormatElement">
-            <summary>
-            formats supported (xml | json | mime type)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Format">
-            <summary>
-            formats supported (xml | json | mime type)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Profile">
-            <summary>
-            Profiles supported by the system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Rest">
-            <summary>
-            If the endpoint is a RESTful one
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Messaging">
-            <summary>
-            If messaging is supported
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.Document">
-            <summary>
-            Document definition
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.SystemRestfulInteraction">
-            <summary>
-            Operations supported by REST at the system level
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.DocumentMode">
-            <summary>
-            Whether the application produces or consumes documents
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.DocumentMode.Producer">
-            <summary>
-            The application produces documents of the specified type.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.DocumentMode.Consumer">
-            <summary>
-            The application consumes documents of the specified type.
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy">
-            <summary>
-            How the system supports versioning for a resource
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy.NoVersion">
-            <summary>
-            VersionId meta-property is not suppoerted (server) or used (client).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy.Versioned">
-            <summary>
-            VersionId meta-property is suppoerted (server) or used (client).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.ResourceVersionPolicy.VersionedUpdate">
-            <summary>
-            VersionId is must be correct for updates (server) or will be specified (If-match header) for updates (client).
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.RestfulConformanceMode">
-            <summary>
-            The mode of a RESTful conformance statement
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulConformanceMode.Client">
-            <summary>
-            The application acts as a client for this resource.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulConformanceMode.Server">
-            <summary>
-            The application acts as a server for this resource.
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.MessageTransport">
-            <summary>
-            The protocol used for message transport
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.MessageTransport.Http">
-            <summary>
-            The application sends or receives messages using HTTP POST (may be over http or https).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.MessageTransport.Ftp">
-            <summary>
-            The application sends or receives messages using File Transfer Protocol.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.MessageTransport.Mllp">
-            <summary>
-            The application sends or receivers messages using HL7's Minimal Lower Level Protocol.
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.TypeRestfulInteraction">
-            <summary>
-            Operations supported by REST at the type or instance level
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.ConformanceEventMode">
-            <summary>
-            The mode of a message conformance statement
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.ConformanceEventMode.Sender">
-            <summary>
-            The application sends requests and receives responses.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.ConformanceEventMode.Receiver">
-            <summary>
-            The application receives requests and sends responses.
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory">
-            <summary>
-            The impact of the content of a message
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory.Consequence">
-            <summary>
-            The message represents/requests a change that should not be processed more than once. E.g. Making a booking for an appointment.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory.Currency">
-            <summary>
-            The message represents a response to query for current information. Retrospective processing is wrong and/or wasteful.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.MessageSignificanceCategory.Notification">
-            <summary>
-            The content is not necessarily intended to be current, and it can be reprocessed, though there may be version issues created by processing old notifications.
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.SearchParamType">
-            <summary>
-            Data types allowed to be used for search parameters
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Number">
-            <summary>
-            Search parameter SHALL be a number (a whole number, or a decimal).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Date">
-            <summary>
-            Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.String">
-            <summary>
-            Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Token">
-            <summary>
-            Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Reference">
-            <summary>
-            A reference to another resource.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Composite">
-            <summary>
-            A composite search parameter that combines a search on two values together.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Quantity">
-            <summary>
-            A search parameter that searches on a quantity.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.SearchParamType.Uri">
-            <summary>
-            A search parameter that searches on a URI (RFC 3986).
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.Conformance.RestfulSecurityService">
-            <summary>
-            Types of security services used with FHIR
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.OAuth">
-            <summary>
-            OAuth (see oauth.net).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.OAuth2">
-            <summary>
-            OAuth version 2 (see oauth.net).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.NTLM">
-            <summary>
-            Microsoft NTLM Authentication.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.Basic">
-            <summary>
-            Basic authentication defined in HTTP specification.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.Conformance.RestfulSecurityService.Kerberos">
-            <summary>
-            see http://www.ietf.org/rfc/rfc4120.txt.
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.ModeElement">
-            <summary>
-            client | server
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Mode">
-            <summary>
-            client | server
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.DocumentationElement">
-            <summary>
-            General description of implementation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Documentation">
-            <summary>
-            General description of implementation
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Security">
-            <summary>
-            Information about security of implementation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Resource">
-            <summary>
-            Resource served on the REST interface
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Interaction">
-            <summary>
-            What operations are supported?
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Operation">
-            <summary>
-            Definition of an operation or a custom query
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.DocumentMailboxElement">
-            <summary>
-            How documents are accepted in /Mailbox
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.DocumentMailbox">
-            <summary>
-            How documents are accepted in /Mailbox
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.CompartmentElement">
-            <summary>
-            Compartments served/used by system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestComponent.Compartment">
-            <summary>
-            Compartments served/used by system
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.NameElement">
-            <summary>
-            A name the software is known by
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.Name">
-            <summary>
-            A name the software is known by
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.VersionElement">
-            <summary>
-            Version covered by this statement
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.Version">
-            <summary>
-            Version covered by this statement
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.ReleaseDateElement">
-            <summary>
-            Date this version released
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceSoftwareComponent.ReleaseDate">
-            <summary>
-            Date this version released
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.EndpointElement">
-            <summary>
-            Actual endpoint being described
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.Endpoint">
-            <summary>
-            Actual endpoint being described
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.ReliableCacheElement">
-            <summary>
-            Reliable Message Cache Length (min)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.ReliableCache">
-            <summary>
-            Reliable Message Cache Length (min)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.DocumentationElement">
-            <summary>
-            Messaging interface behavior details
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.Documentation">
-            <summary>
-            Messaging interface behavior details
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingComponent.Event">
-            <summary>
-            Declare support for this event
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.ModeElement">
-            <summary>
-            producer | consumer
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.Mode">
-            <summary>
-            producer | consumer
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.DocumentationElement">
-            <summary>
-            Description of document support
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.Documentation">
-            <summary>
-            Description of document support
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceDocumentComponent.Profile">
-            <summary>
-            Constraint on a resource used in the document
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.TypeElement">
-            <summary>
-            A resource type that is supported
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Type">
-            <summary>
-            A resource type that is supported
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Profile">
-            <summary>
-            What structural features are supported
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Interaction">
-            <summary>
-            What operations are supported?
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.VersioningElement">
-            <summary>
-            no-version | versioned | versioned-update
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.Versioning">
-            <summary>
-            no-version | versioned | versioned-update
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ReadHistoryElement">
-            <summary>
-            Whether vRead can return past versions
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ReadHistory">
-            <summary>
-            Whether vRead can return past versions
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.UpdateCreateElement">
-            <summary>
-            If update can commit to a new identity
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.UpdateCreate">
-            <summary>
-            If update can commit to a new identity
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalCreateElement">
-            <summary>
-            If allows/uses conditional create
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalCreate">
-            <summary>
-            If allows/uses conditional create
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalUpdateElement">
-            <summary>
-            If allows/uses conditional update
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalUpdate">
-            <summary>
-            If allows/uses conditional update
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalDeleteElement">
-            <summary>
-            If allows/uses conditional delete
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.ConditionalDelete">
-            <summary>
-            If allows/uses conditional delete
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.SearchIncludeElement">
-            <summary>
-            _include values supported by the server
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.SearchInclude">
-            <summary>
-            _include values supported by the server
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceComponent.SearchParam">
-            <summary>
-            Search params supported by implementation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.DescriptionElement">
-            <summary>
-            Describes this specific instance
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.Description">
-            <summary>
-            Describes this specific instance
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.UrlElement">
-            <summary>
-            Base URL for the installation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceImplementationComponent.Url">
-            <summary>
-            Base URL for the installation
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceContactComponent.NameElement">
-            <summary>
-            Name of a individual to contact
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceContactComponent.Name">
-            <summary>
-            Name of a individual to contact
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceContactComponent.Telecom">
-            <summary>
-            Contact details for individual or publisher
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Code">
-            <summary>
-            Event type
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.CategoryElement">
-            <summary>
-            Consequence | Currency | Notification
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Category">
-            <summary>
-            Consequence | Currency | Notification
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.ModeElement">
-            <summary>
-            sender | receiver
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Mode">
-            <summary>
-            sender | receiver
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Protocol">
-            <summary>
-            http | ftp | mllp +
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.FocusElement">
-            <summary>
-            Resource that's focus of message
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Focus">
-            <summary>
-            Resource that's focus of message
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Request">
-            <summary>
-            Profile that describes the request
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Response">
-            <summary>
-            Profile that describes the response
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.DocumentationElement">
-            <summary>
-            Endpoint-specific event documentation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceMessagingEventComponent.Documentation">
-            <summary>
-            Endpoint-specific event documentation
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.CodeElement">
-            <summary>
-            transaction | search-system | history-system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.Code">
-            <summary>
-            transaction | search-system | history-system
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.DocumentationElement">
-            <summary>
-            Anything special about operation behavior
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.SystemInteractionComponent.Documentation">
-            <summary>
-            Anything special about operation behavior
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.CodeElement">
-            <summary>
-            read | vread | update | delete | history-instance | validate | history-type | create | search-type
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.Code">
-            <summary>
-            read | vread | update | delete | history-instance | validate | history-type | create | search-type
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.DocumentationElement">
-            <summary>
-            Anything special about operation behavior
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ResourceInteractionComponent.Documentation">
-            <summary>
-            Anything special about operation behavior
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.CorsElement">
-            <summary>
-            Adds CORS Headers (http://enable-cors.org/)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Cors">
-            <summary>
-            Adds CORS Headers (http://enable-cors.org/)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Service">
-            <summary>
-            OAuth | OAuth2 | NTLM | Basic | Kerberos
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.DescriptionElement">
-            <summary>
-            General description of how security works
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Description">
-            <summary>
-            General description of how security works
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityComponent.Certificate">
-            <summary>
-            Certificates associated with security profiles
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.TypeElement">
-            <summary>
-            Mime type for certificate
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.Type">
-            <summary>
-            Mime type for certificate
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.BlobElement">
-            <summary>
-            Actual certificate
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestSecurityCertificateComponent.Blob">
-            <summary>
-            Actual certificate
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestOperationComponent.NameElement">
-            <summary>
-            Name by which the operation/query is invoked
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestOperationComponent.Name">
-            <summary>
-            Name by which the operation/query is invoked
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestOperationComponent.Definition">
-            <summary>
-            The defined operation/query
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.NameElement">
-            <summary>
-            Name of search parameter
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Name">
-            <summary>
-            Name of search parameter
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.DefinitionElement">
-            <summary>
-            Source of definition for parameter
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Definition">
-            <summary>
-            Source of definition for parameter
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.TypeElement">
-            <summary>
-            number | date | string | token | reference | composite | quantity | uri
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Type">
-            <summary>
-            number | date | string | token | reference | composite | quantity | uri
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.DocumentationElement">
-            <summary>
-            Server-specific usage
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Documentation">
-            <summary>
-            Server-specific usage
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.TargetElement">
-            <summary>
-            Types of resource (if a resource reference)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Target">
-            <summary>
-            Types of resource (if a resource reference)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.ChainElement">
-            <summary>
-            Chained names supported
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.Conformance.ConformanceRestResourceSearchParamComponent.Chain">
-            <summary>
-            Chained names supported
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
         </member>
         <member name="T:Hl7.Fhir.Model.Device">
             <summary>
@@ -17396,6 +17972,11 @@
             Specific list of hints/warnings/errors
             </summary>
         </member>
+        <member name="M:Hl7.Fhir.Model.ModelInfo.IsCoreModelType(System.String)">
+            <summary>
+            Is the given type a core Resource, Datatype or primitive
+            </summary>
+        </member>
         <member name="P:Hl7.Fhir.Model.ModelInfo.SearchParamDefinition.CompositeParams">
             <summary>
             If this search parameter is a Composite, this array contains 
@@ -19821,584 +20402,7 @@
             Primitive value of the element
             </summary>
         </member>
-        <member name="T:Hl7.Fhir.Model.ValueSet">
-            <summary>
-            A set of codes drawn from one or more code systems
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.UrlElement">
-            <summary>
-            Globally unique logical id for  value set
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Url">
-            <summary>
-            Globally unique logical id for  value set
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Identifier">
-            <summary>
-            Additional identifier for the value set (v2 / CDA)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.VersionElement">
-            <summary>
-            Logical id for this version of the value set
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Version">
-            <summary>
-            Logical id for this version of the value set
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.NameElement">
-            <summary>
-            Informal name for this value set
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Name">
-            <summary>
-            Informal name for this value set
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.UseContext">
-            <summary>
-            Content intends to support these contexts
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ImmutableElement">
-            <summary>
-            Indicates whether or not any change to the content logical definition may occur
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Immutable">
-            <summary>
-            Indicates whether or not any change to the content logical definition may occur
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.PublisherElement">
-            <summary>
-            Name of the publisher (Organization or individual)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Publisher">
-            <summary>
-            Name of the publisher (Organization or individual)
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Contact">
-            <summary>
-            Contact details of the publisher
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.DescriptionElement">
-            <summary>
-            Human language description of the value set
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Description">
-            <summary>
-            Human language description of the value set
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.RequirementsElement">
-            <summary>
-            Why is this needed?
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Requirements">
-            <summary>
-            Why is this needed?
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.CopyrightElement">
-            <summary>
-            Use and/or Publishing restrictions
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Copyright">
-            <summary>
-            Use and/or Publishing restrictions
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.StatusElement">
-            <summary>
-            draft | active | retired
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Status">
-            <summary>
-            draft | active | retired
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ExperimentalElement">
-            <summary>
-            If for testing purposes, not real usage
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Experimental">
-            <summary>
-            If for testing purposes, not real usage
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ExtensibleElement">
-            <summary>
-            Whether this is intended to be used with an extensible binding
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Extensible">
-            <summary>
-            Whether this is intended to be used with an extensible binding
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.DateElement">
-            <summary>
-            Date for given status
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Date">
-            <summary>
-            Date for given status
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.LockedDateElement">
-            <summary>
-            Fixed date for all referenced code systems and value sets
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.LockedDate">
-            <summary>
-            Fixed date for all referenced code systems and value sets
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Define">
-            <summary>
-            When value set defines its own codes
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Compose">
-            <summary>
-            When value set includes codes from elsewhere
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.Expansion">
-            <summary>
-            Used when the value set is "expanded"
-            </summary>
-        </member>
-        <member name="T:Hl7.Fhir.Model.ValueSet.FilterOperator">
-            <summary>
-            The kind of operation to perform as a part of a property based filter
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.Equal">
-            <summary>
-            The specified property of the code equals the provided value.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.IsA">
-            <summary>
-            Includes all concept ids that have a transitive is-a relationship with the concept Id provided as the value, including the provided concept itself.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.IsNotA">
-            <summary>
-            The specified property of the code does not have an is-a relationship with the provided value.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.Regex">
-            <summary>
-            The specified property of the code  matches the regex specified in the provided value.
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.In">
-            <summary>
-            The specified property of the code is in the set of codes or concepts specified in the provided value (comma separated list).
-            </summary>
-        </member>
-        <member name="F:Hl7.Fhir.Model.ValueSet.FilterOperator.NotIn">
-            <summary>
-            The specified property of the code is not in the set of codes or concepts specified in the provided value (comma separated list).
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.SystemElement">
-            <summary>
-            URI to identify the code system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.System">
-            <summary>
-            URI to identify the code system
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.VersionElement">
-            <summary>
-            Version of this system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.Version">
-            <summary>
-            Version of this system
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.CaseSensitiveElement">
-            <summary>
-            If code comparison is case sensitive
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.CaseSensitive">
-            <summary>
-            If code comparison is case sensitive
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetDefineComponent.Concept">
-            <summary>
-            Concepts in the code system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.SystemElement">
-            <summary>
-            System value for the code
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.System">
-            <summary>
-            System value for the code
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.AbstractElement">
-            <summary>
-            If user cannot select this entry
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Abstract">
-            <summary>
-            If user cannot select this entry
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.VersionElement">
-            <summary>
-            Version in which this code / display is defined
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Version">
-            <summary>
-            Version in which this code / display is defined
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.CodeElement">
-            <summary>
-            Code - if blank, this is not a choosable code
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Code">
-            <summary>
-            Code - if blank, this is not a choosable code
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.DisplayElement">
-            <summary>
-            User display for the concept
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Display">
-            <summary>
-            User display for the concept
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionContainsComponent.Contains">
-            <summary>
-            Codes contained in this concept
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.LanguageElement">
-            <summary>
-            Language of the designation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.Language">
-            <summary>
-            Language of the designation
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.Use">
-            <summary>
-            Details how this designation would be used
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.ValueElement">
-            <summary>
-            The text value for this designation
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionDesignationComponent.Value">
-            <summary>
-            The text value for this designation
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.CodeElement">
-            <summary>
-            Code that identifies concept
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Code">
-            <summary>
-            Code that identifies concept
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.AbstractElement">
-            <summary>
-            If this code is not for use as a real concept
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Abstract">
-            <summary>
-            If this code is not for use as a real concept
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.DisplayElement">
-            <summary>
-            Text to Display to the user
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Display">
-            <summary>
-            Text to Display to the user
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.DefinitionElement">
-            <summary>
-            Formal Definition
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Definition">
-            <summary>
-            Formal Definition
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Designation">
-            <summary>
-            Additional representations for the concept
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptDefinitionComponent.Concept">
-            <summary>
-            Child Concepts (is-a / contains)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.SystemElement">
-            <summary>
-            The system the codes come from
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.System">
-            <summary>
-            The system the codes come from
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.VersionElement">
-            <summary>
-            Specific version of the code system referred to
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.Version">
-            <summary>
-            Specific version of the code system referred to
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.Concept">
-            <summary>
-            A concept defined in the system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetComponent.Filter">
-            <summary>
-            Select codes/concepts by their properties (including relationships)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.CodeElement">
-            <summary>
-            Code or expression from system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.Code">
-            <summary>
-            Code or expression from system
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.DisplayElement">
-            <summary>
-            Test to display for this code for this value set
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.Display">
-            <summary>
-            Test to display for this code for this value set
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptReferenceComponent.Designation">
-            <summary>
-            Additional representations for this valueset
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.PropertyElement">
-            <summary>
-            A property defined by the code system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.Property">
-            <summary>
-            A property defined by the code system
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.OpElement">
-            <summary>
-            = | is-a | is-not-a | regex | in | not-in
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.Op">
-            <summary>
-            = | is-a | is-not-a | regex | in | not-in
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.ValueElement">
-            <summary>
-            Code from the system, or regex criteria
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ConceptSetFilterComponent.Value">
-            <summary>
-            Code from the system, or regex criteria
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetContactComponent.NameElement">
-            <summary>
-            Name of a individual to contact
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetContactComponent.Name">
-            <summary>
-            Name of a individual to contact
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetContactComponent.Telecom">
-            <summary>
-            Contact details for individual or publisher
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionParameterComponent.NameElement">
-            <summary>
-            Name as assigned by server
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionParameterComponent.Name">
-            <summary>
-            Name as assigned by server
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionParameterComponent.Value">
-            <summary>
-            Value of the parameter
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.ImportElement">
-            <summary>
-            Import the contents of another value set
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.Import">
-            <summary>
-            Import the contents of another value set
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.Include">
-            <summary>
-            Include one or more codes from a code system
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetComposeComponent.Exclude">
-            <summary>
-            Explicitly exclude codes
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.IdentifierElement">
-            <summary>
-            Uniquely identifies this expansion
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Identifier">
-            <summary>
-            Uniquely identifies this expansion
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.TimestampElement">
-            <summary>
-            Time valueset expansion happened
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Timestamp">
-            <summary>
-            Time valueset expansion happened
-            </summary>
-            <remarks>This uses the native .NET datatype, rather than the FHIR equivalent</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Parameter">
-            <summary>
-            Parameter that controlled the expansion process
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.ValueSet.ValueSetExpansionComponent.Contains">
-            <summary>
-            Codes in the value set
-            </summary>
-        </member>
         <member name="M:Hl7.Fhir.Model.ExtensionExtensions.GetExtension(Hl7.Fhir.Model.IExtendable,System.String)">
-            <summary>
-            Return the first extension with the given uri, or null if none was found
-            </summary>
-            <param name="extendable"></param>
-            <param name="uri"></param>
-            <returns>The first uri, or null if no extension with the given uri was found.</returns>
-        </member>
-        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.GetExtensionValue(Hl7.Fhir.Model.IExtendable,System.String)">
             <summary>
             Return the first extension with the given uri, or null if none was found
             </summary>
@@ -20414,13 +20418,32 @@
             <param name="uri"></param>
             <returns>The list of extensions with a matching uri, or empty list if none were found.</returns>
         </member>
-        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.AddExtension(Hl7.Fhir.Model.IExtendable,System.String,Hl7.Fhir.Model.Element)">
+        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.GetExtensions(Hl7.Fhir.Model.IModifierExtendable,System.String)">
+            <summary>
+            Find all extensions with the given uri.
+            </summary>
+            <param name="extendable"></param>
+            <param name="uri"></param>
+            <returns>The list of extensions with a matching uri, or empty list if none were found.</returns>
+            <remarks>If multiple extensions with the same uri are found, this function returns the first modifier extensions,
+            otherwise the first normal extension.</remarks>        
+        </member>
+        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.GetStringExtension(Hl7.Fhir.Model.IExtendable,System.String)">
+            <summary>
+            Return the first extension with the given uri as a string, or null if none was found
+            </summary>
+            <param name="extendable"></param>
+            <param name="uri"></param>
+            <returns>The first uri, or null if no extension with the given uri was found.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.AddExtension(Hl7.Fhir.Model.IExtendable,System.String,Hl7.Fhir.Model.Element,System.Boolean)">
             <summary>
             Add an extension with the given uri and value
             </summary>
             <param name="extendable"></param>
             <param name="uri"></param>
             <param name="value"></param>
+            <param name="isModifier"></param>
             <returns>The newly added Extension</returns>
         </member>
         <member name="M:Hl7.Fhir.Model.ExtensionExtensions.RemoveExtension(Hl7.Fhir.Model.IExtendable,System.String)">
@@ -20430,7 +20453,7 @@
             <param name="extendable"></param>
             <param name="uri"></param>
         </member>
-        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.SetExtension(Hl7.Fhir.Model.IExtendable,System.String,Hl7.Fhir.Model.Element)">
+        <member name="M:Hl7.Fhir.Model.ExtensionExtensions.SetExtension(Hl7.Fhir.Model.IExtendable,System.String,Hl7.Fhir.Model.Element,System.Boolean)">
             <summary>
             Add an extension with the given uri and value, removing any pre-existsing extensions
             with the same uri.
@@ -20438,6 +20461,7 @@
             <param name="extendable"></param>
             <param name="uri"></param>
             <param name="value"></param>
+            <param name="isModifier"></param>
             <returns>The newly added extension</returns>
         </member>
         <member name="F:Hl7.Fhir.Rest.EntryToHttpExtensions.SetUserAgentUsingReflection">
@@ -20577,6 +20601,12 @@
             If the endpoint does not end with a slash (/), it will be added.
             </summary>
         </member>
+        <member name="M:Hl7.Fhir.Rest.FhirClient.#ctor(System.String)">
+            <summary>
+            Creates a new client using a default endpoint
+            If the endpoint does not end with a slash (/), it will be added.
+            </summary>
+        </member>
         <member name="M:Hl7.Fhir.Rest.FhirClient.Read``1(System.Uri,System.String,System.Nullable{System.DateTimeOffset})">
             <summary>
             Fetches a typed resource from a FHIR resource endpoint.
@@ -20584,12 +20614,16 @@
             <param name="location">The url of the Resource to fetch. This can be a Resource id url or a version-specific
             Resource url.</param>
             <param name="ifNoneMatch">The (weak) ETag to use in a conditional read. Optional.</param>
-            <param name="ifModifiedSince">Last modified since date in a conditional read. Optional.</param>
+            <param name="ifModifiedSince">Last modified since date in a conditional read. Optional. (refer to spec 2.1.0.5) If this is used, the client will throw an exception you need</param>
             <typeparam name="TResource">The type of resource to read. Resource or DomainResource is allowed if exact type is unknown</typeparam>
-            <returns>The requested resource as a ResourceEntry&lt;T&gt;. This operation will throw an exception
-            if the resource has been deleted or does not exist. The specified may be relative or absolute, if it is an abolute
-            url, it must reference an address within the endpoint.</returns>
+            <returns>
+            The requested resource. This operation will throw an exception
+            if the resource has been deleted or does not exist. 
+            The specified may be relative or absolute, if it is an absolute
+            url, it must reference an address within the endpoint.
+            </returns>
             <remarks>Since ResourceLocation is a subclass of Uri, you may pass in ResourceLocations too.</remarks>
+            <exception cref="!:FHIROperationException">This will occur if conditional request returns a status 304 and optionally an OperationOutcome</exception>
         </member>
         <member name="M:Hl7.Fhir.Rest.FhirClient.Read``1(System.String,System.String,System.Nullable{System.DateTimeOffset})">
             <summary>
@@ -20602,7 +20636,7 @@
             <typeparam name="TResource">The type of resource to read. Resource or DomainResource is allowed if exact type is unknown</typeparam>
             <returns>The requested resource</returns>
             <remarks>This operation will throw an exception
-            if the resource has been deleted or does not exist. The specified may be relative or absolute, if it is an abolute
+            if the resource has been deleted or does not exist. The specified may be relative or absolute, if it is an absolute
             url, it must reference an address within the endpoint.</remarks>
         </member>
         <member name="M:Hl7.Fhir.Rest.FhirClient.Update``1(``0,System.Boolean)">
@@ -20685,6 +20719,17 @@
             <returns>A bundle with the history for the indicated instance, may contain both 
             ResourceEntries and DeletedEntries.</returns>
         </member>
+        <member name="M:Hl7.Fhir.Rest.FhirClient.TypeHistory``1(System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Retrieve the version history for a specific resource type
+            </summary>
+            <param name="since">Optional. Returns only changes after the given date</param>
+            <param name="pageSize">Optional. Asks server to limit the number of entries per page returned</param>
+            <param name="summary">Optional. Asks the server to only provide the fields defined for the summary</param>
+            <typeparam name="TResource">The type of Resource to get the history for</typeparam>
+            <returns>A bundle with the history for the indicated instance, may contain both 
+            ResourceEntries and DeletedEntries.</returns>
+        </member>
         <member name="M:Hl7.Fhir.Rest.FhirClient.History(System.Uri,System.Nullable{System.DateTimeOffset},System.Nullable{System.Int32},System.Boolean)">
             <summary>
             Retrieve the version history for a resource at a given location
@@ -20710,7 +20755,7 @@
             <summary>
             Send a set of creates, updates and deletes to the server to be processed in one transaction
             </summary>
-            <param name="bundle">The bundled creates, updates and delted</param>
+            <param name="bundle">The bundled creates, updates and deleted</param>
             <returns>A bundle as returned by the server after it has processed the transaction, or null
             if an error occurred.</returns>
         </member>
@@ -20719,7 +20764,7 @@
             Invoke a general GET on the server. If the operation fails, then this method will throw an exception
             </summary>
             <param name="url">A relative or absolute url. If the url is absolute, it has to be located within the endpoint of the client.</param>
-            <returns>A resource that is the outcome of the operation. The type depends on the definition of the operation at the givel url</returns>
+            <returns>A resource that is the outcome of the operation. The type depends on the definition of the operation at the given url</returns>
             <remarks>parameters to the method are simple, and are in the URL, and this is a GET operation</remarks>
         </member>
         <member name="M:Hl7.Fhir.Rest.FhirClient.Get(System.String)">
@@ -20727,7 +20772,7 @@
             Invoke a general GET on the server. If the operation fails, then this method will throw an exception
             </summary>
             <param name="url">A relative or absolute url. If the url is absolute, it has to be located within the endpoint of the client.</param>
-            <returns>A resource that is the outcome of the operation. The type depends on the definition of the operation at the givel url</returns>
+            <returns>A resource that is the outcome of the operation. The type depends on the definition of the operation at the given url</returns>
             <remarks>parameters to the method are simple, and are in the URL, and this is a GET operation</remarks>
         </member>
         <member name="M:Hl7.Fhir.Rest.FhirClient.BeforeRequest(System.Net.HttpWebRequest)">
@@ -20741,10 +20786,37 @@
             Inspect the HttpWebResponse as it came back from the server 
             </summary>
         </member>
+        <member name="P:Hl7.Fhir.Rest.FhirClient.PreferredFormat">
+            <summary>
+            The preferred format of the content to be used when communicating with the FHIR server (XML or JSON)
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Rest.FhirClient.UseFormatParam">
+            <summary>
+            When passing the content preference, use the _format parameter instead of the request header
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Rest.FhirClient.Timeout">
+            <summary>
+            The timeout (in milliseconds) to be used when making calls to the FHIR server
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Rest.FhirClient.ReturnFullResource">
+            <summary>
+            Should calls to Create, Update and transaction operations return the whole content,
+            or expect nobody, or an OperationOutcome
+            </summary>
+            <remarks>Refer to specification section 2.1.0.5 (Managing Return Content)</remarks>
+        </member>
+        <member name="P:Hl7.Fhir.Rest.FhirClient.LastResult">
+            <summary>
+            The last transaction result that was executed on this connection to the FHIR server
+            </summary>
+        </member>
         <member name="P:Hl7.Fhir.Rest.FhirClient.Endpoint">
             <summary>
             The default endpoint for use with operations that use discrete id/version parameters
-            instead of explicit uri endpoints.
+            instead of explicit uri endpoints. This will always have a trailing "/"
             </summary>
         </member>
         <member name="T:Hl7.Fhir.Rest.UriParamList">
@@ -20789,8 +20861,9 @@
             <summary>
             List of all the search parameter that have some special meaning.
             Primarily used to filter to the non-special parameters.
-            Notice that _id, _text, _content, _tag, _profile and _security are predefined in the standard,
-            but not can still be parsed as regular criteria. So they are not in the RESERVED_PARAMETERS.
+            Notice that _query, _text, _filter and _content are predefined searches in the standard,
+            but cannot be parsed as regular criteria. So they are included in the RESERVED_PARAMETERS 
+            and thus not included in the Parameters property
             </summary>
         </member>
         <member name="M:Hl7.Fhir.Rest.SearchParams.Add(System.String,System.String)">
@@ -20800,6 +20873,11 @@
             <param name="name">The name of the parameter</param>
             <param name="value">The value of the parameter as a FHIR datatype or Resource</param>
             <returns>this (Parameters), so you can chain AddParameter calls</returns>
+        </member>
+        <member name="P:Hl7.Fhir.Rest.SearchParams.Parameters">
+            <summary>
+            The 'regular' parameters. The parameters that have no special meaning.
+            </summary>
         </member>
         <member name="P:Hl7.Fhir.Rest.SearchParams.Query">
             <summary>

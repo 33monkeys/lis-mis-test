@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using FhirNetApiExtension;
 using Hl7.Fhir.Rest;
 using Monads.NET;
 
@@ -8,7 +9,10 @@ namespace Lis.Test.Integration.Common
     public class Constants
     {
         //public const string Endpoint = "http://fhir.zdrav.netrika.ru/fhir";
+
         public const string Endpoint = "http://localhost:50883/fhir";
+
+        public const string TestToken = "a24f04ec-dbe0-4cdf-a87f-a6c1d98bfa49";
 
         public const string TerminologyEndpoint = "http://localhost:50883/term";
 
@@ -28,9 +32,9 @@ namespace Lis.Test.Integration.Common
             get { return GetOrCreateStructureDefinition("LisResult"); }
         }
 
-        private static readonly Lazy<FhirClient> LazyClient = new Lazy<FhirClient>(() => new FhirClient(Endpoint));
+        private static readonly Lazy<N3FhirClient> LazyClient = new Lazy<N3FhirClient>(() => new N3FhirClient(Endpoint, new N3Credentials(TestToken)));
 
-        public static FhirClient FhirClient
+        public static N3FhirClient FhirClient
         {
             get { return LazyClient.Value; }
         }
