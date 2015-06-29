@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{ED4587
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSslGost", "..\OpenSslGost\OpenSslGost.csproj", "{00E4F650-89CD-4A95-9846-CE9B83DE46DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSslGost", "OpenSslGost\OpenSslGost.csproj", "{00E4F650-89CD-4A95-9846-CE9B83DE46DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
