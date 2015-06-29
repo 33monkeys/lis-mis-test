@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FhirNetApiExtension;
 using Hl7.Fhir.Model;
-using Hl7.Fhir.Rest;
 using Lis.Test.Integration.Common;
 using Monads.NET;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
 namespace Lis.Test.Integration
 {

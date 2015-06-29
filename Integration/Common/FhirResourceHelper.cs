@@ -1,21 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using FhirNetApiExtension;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
-using Monads.NET;
 using NUnit.Framework;
+using Monads.NET;
 using RestSharp;
 
 namespace Lis.Test.Integration.Common
@@ -476,10 +473,9 @@ namespace Lis.Test.Integration.Common
             var rsaKey = new RSACryptoServiceProvider(cspParams);
 
             var xmlDoc = new XmlDocument { PreserveWhitespace = true };
-            xmlDoc.LoadXml(File.ReadAllText("RsaXmlAttachment.xml"));
+            xmlDoc.LoadXml(File.ReadAllText("RsaXmlAttachment_V.xml"));
 
             SignXml(xmlDoc, rsaKey);
-            xmlDoc.Save("out.xml");
             var xmlString = xmlDoc.OuterXml;
             //var xmlString = File.ReadAllText("RsaSignedAttachment.xml");
             var xmlStringBytes = Encoding.UTF8.GetBytes(xmlString);
@@ -502,11 +498,11 @@ namespace Lis.Test.Integration.Common
             var env = new XmlDsigEnvelopedSignatureTransform();
             reference.AddTransform(env);
             signedXml.AddReference(reference);
-            signedXml.ComputeSignature();
-            var xmlDigitalSignature = signedXml.GetXml();
-            xmlDoc.DocumentElement.AppendChild(xmlDoc.ImportNode(xmlDigitalSignature, true));
+            //signedXml.ComputeSignature();
+            //var xmlDigitalSignature = signedXml.GetXml();
+            //xmlDoc.DocumentElement.AppendChild(xmlDoc.ImportNode(xmlDigitalSignature, true));
 
-            xmlDoc.Save("out-signed-xml.xml");
+            //xmlDoc.Save("out-signed-xml.xml");
         }
 
         public static Parameters GetOrderOperation(string sourceCode = null, string targetCode = null, string barcode = null)

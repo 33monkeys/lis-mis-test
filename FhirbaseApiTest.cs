@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Fhirbase.Net;
+using Fhirbase.Net.Api;
+using Fhirbase.Net.Common;
+using NUnit.Core;
 using NUnit.Framework;
 
 namespace Lis.Test

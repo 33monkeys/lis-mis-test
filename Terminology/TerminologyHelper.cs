@@ -10,6 +10,7 @@ using Hl7.Fhir.Serialization;
 using Lis.Test.Integration.Common;
 using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
+using NUnit.Core;
 using NUnit.Framework;
 using RestSharp;
 

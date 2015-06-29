@@ -1,18 +1,18 @@
 using System;
-using System.Linq;
 using FhirNetApiExtension;
 using Hl7.Fhir.Rest;
+using System.Linq;
 using Monads.NET;
 
 namespace Lis.Test.Integration.Common
 {
     public class Constants
     {
-        //public const string Endpoint = "http://fhir.zdrav.netrika.ru/fhir";
+        public const string Endpoint = "http://fhir-demo.zdrav.netrika.ru/fhir";
 
-        public const string Endpoint = "http://localhost:50883/fhir";
+        //public const string Endpoint = "http://localhost:50883/fhir";
 
-        public const string TestToken = "a24f04ec-dbe0-4cdf-a87f-a6c1d98bfa49";
+        public const string TestToken = "a24f04ec-dbe0-4cdf-a87f-a6c1d98bfa43";
 
         public const string TerminologyEndpoint = "http://localhost:50883/term";
 
