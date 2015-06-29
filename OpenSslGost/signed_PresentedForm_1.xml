@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Envelope xmlns="http://hl7.org/fhir">
+<presentedForm>N3.Hello</presentedForm>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<DigestValue>q9M/V23m56/9QzxDMt6JBQI6Ugs=</DigestValue>
+</Reference>
+</SignedInfo>
+	<SignatureValue>Hynyk+UeYYBXXS2pQhi05wH4zYu+5VBMox5f7+i16BhKZmcUp2GyLWnf/XA29dKg6R+sMZ0JD1kL1EZVd6nAOacGYsAKAt2dNK7inVWN0wcju0qgyHPAOi4CKPgdBFBKaXu0sKRLOwJofplIsZ+dRCnx/PZ0e5Wqu4I+qYjz8NI=</SignatureValue>
+	<KeyInfo>
+		<KeyValue>
+<RSAKeyValue>
+<Modulus>
+ygRFNlVOV5liqilnfhPNDEEFAQVXXps6eQqWn+V4Nl0AMnYgMOYkIVkKxnYXGvcg
+rGEL5F7b1P0nPovJSeaYRlYf/u0Seci2P5an68nzVxew8OlIiZtbH5CtYNYDk6pk
+1uY5JjDnAG5dsyKK7Iu/gfIUEn8PFpOIhTZDofkYHLk=
+</Modulus>
+<Exponent>
+AQAB
+</Exponent>
+</RSAKeyValue>
+</KeyValue>
+	</KeyInfo>
+</Signature>
+</Envelope>
