@@ -457,7 +457,7 @@ namespace Lis.Test.Integration.Common
                 Conclusion = "Заключение",
                 PresentedForm = new List<Attachment>
                 {
-                    new Attachment {Hash = Encoding.UTF8.GetBytes("hash"), Data = LoadSignedXml()}
+                    new Attachment {Hash = Encoding.UTF8.GetBytes("hash"), Data = LoadSignedData()}
                 },
                 Result = new List<ResourceReference>
                 {
@@ -467,21 +467,10 @@ namespace Lis.Test.Integration.Common
             };
         }
 
-        private static byte[] LoadSignedXml()
+        private static byte[] LoadSignedData()
         {
-            var cspParams = new CspParameters { KeyContainerName = "XML_DSIG_RSA_KEY" };
-            var rsaKey = new RSACryptoServiceProvider(cspParams);
-
-            var xmlDoc = new XmlDocument { PreserveWhitespace = true };
-            xmlDoc.LoadXml(File.ReadAllText("RsaXmlAttachment_V.xml"));
-
-            SignXml(xmlDoc, rsaKey);
-            var xmlString = xmlDoc.OuterXml;
-            //var xmlString = File.ReadAllText("RsaSignedAttachment.xml");
-            var xmlStringBytes = Encoding.UTF8.GetBytes(xmlString);
-            var base64String = Convert.ToBase64String(xmlStringBytes);
-            var base64Bytes = Encoding.UTF8.GetBytes(base64String);
-            return base64Bytes;
+            const string data = "eyJkYXRhIjoiPEVudmVsb3BlIHhtbG5zPVwiaHR0cDovL2hsNy5vcmcvZmhpclwiPjxwcmVzZW50ZWRGb3JtPkhlbGxvIHdvcmxkPC9wcmVzZW50ZWRGb3JtPjwvRW52ZWxvcGU+IiwicHVibGljX2tleSI6IkJpQUFBQ011QUFCTlFVY3hBQUlBQURBU0JnY3FoUU1DQWlRQUJnY3FoUU1DQWg0QkRST1BmbW1PZU9oODZWN2lDYXZDK2N2MEtPZVZEbmc4MlRnbWZhZGlMQWVtb1RQOTZYZWRhbEFpc2pEOHIrQW9Samg2QVZHdmFEZkFsa01penBzMTl3PT0iLCJoYXNoIjoiclFIVW0vVXgxNnFONy9Pc3dLeFNKM1c1OEpCY0hjS2JRMnhQRURmbkJ6OD0iLCJzaWduIjoiVktONjEreGp6UnNlbFUySXJuemo3aG9wOVMzY2MwOVNUdVpQNWhraW9hMzN3TitQRnZQc0Q1b21GUVNWN2pGMzFMellvTWYrY2VIWXE1RXlVVFpGQVE9PSJ9";
+            return Encoding.UTF8.GetBytes(data);
         }
 
         private static void SignXml(XmlDocument xmlDoc, AsymmetricAlgorithm key)

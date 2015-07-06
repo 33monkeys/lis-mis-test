@@ -8,9 +8,9 @@ namespace Lis.Test.Integration.Common
 {
     public class Constants
     {
-        public const string Endpoint = "http://fhir-demo.zdrav.netrika.ru/fhir";
+        //public const string Endpoint = "http://fhir-demo.zdrav.netrika.ru/fhir";
 
-        //public const string Endpoint = "http://localhost:50883/fhir";
+        public const string Endpoint = "http://localhost:50883/fhir";
 
         public const string TestToken = "a24f04ec-dbe0-4cdf-a87f-a6c1d98bfa43";
 

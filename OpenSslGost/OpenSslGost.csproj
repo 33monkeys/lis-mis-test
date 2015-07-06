@@ -56,9 +56,6 @@
     <None Include="cert.cer">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="certificate.pfx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="privatekey.pem">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
