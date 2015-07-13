@@ -18,8 +18,8 @@ namespace Lis.Test.Integration.Common
             var orderPractitioner = FhirResourceHelper.CreatePractitioner(orderOrganization);
             var diagnosticOrderPractitioner = FhirResourceHelper.CreatePractitioner(diagnosticOrderOrganization);
 
-            var specimen = FhirResourceHelper.GetSpecimen(patient);
-            var specimen1 = FhirResourceHelper.GetSpecimen(patient);
+            var specimen = FhirResourceHelper.GetSpecimen(patient, orderOrganization);
+            var specimen1 = FhirResourceHelper.GetSpecimen(patient, orderOrganization);
 
             var condition = FhirResourceHelper.GetCondition(patient);
 

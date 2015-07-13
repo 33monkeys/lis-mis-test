@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Xml;
+using Fhirbase.Net.SearchHelpers;
 using FhirNetApiExtension;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
@@ -30,7 +31,13 @@ namespace Lis.Test.Integration.Common
         {
             var patient = new Patient
             {
-                Identifier = new List<Identifier>{new Identifier(Systems.PATIENT_PASSPORT, "165516")},
+                Identifier = new List<Identifier>{new Identifier(Systems.PATIENT_PASSPORT, "165516")
+                {
+                    Assigner = new ResourceReference
+                    {
+                        Reference = "Организация 123"
+                    }
+                }},
                 Gender = AdministrativeGender.Male,
                 BirthDate = DateTime.Today.AddYears(-54).ToString(CultureInfo.CurrentCulture),
                 Name = new List<HumanName>
@@ -51,22 +58,25 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.PRACTITIONER_IDENTIFIER, Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    {
+                        Assigner = FhirHelper.CreateReference(orderOrganization)
+                    }
                 },
                 Name = new HumanName
                 {
-                    Family = new List<string> {"Петров"},
-                    Given = new List<string> {"Петр"}
+                    Family = new List<string> {"Врач"},
+                    Given = new List<string> {"Врач"}
                 },
                 PractitionerRole = new List<Practitioner.PractitionerPractitionerRoleComponent>
                 {
                     new Practitioner.PractitionerPractitionerRoleComponent
                     {
                         ManagingOrganization = FhirHelper.CreateReference(orderOrganization),
-                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, Guid.NewGuid().ToString()),
+                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, "27"),
                         Specialty = new List<CodeableConcept>
                         {
-                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, Guid.NewGuid().ToString())
+                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, "14")
                         }
                     }
                 }
@@ -89,7 +99,7 @@ namespace Lis.Test.Integration.Common
             return null;
         }
 
-        public static Specimen GetSpecimen(Patient patient)
+        public static Specimen GetSpecimen(Patient patient, Organization orderOrganization)
         {
             var specimen = new Specimen
             {
@@ -105,7 +115,10 @@ namespace Lis.Test.Integration.Common
                     {
                         Identifier = new List<Identifier>
                         {
-                            new Identifier(Systems.CONTAINER_TYPE_IDENTIFIER, Guid.NewGuid().ToString())
+                            new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                            {
+                                Assigner = FhirHelper.CreateReference(orderOrganization)
+                            }
                         },
                         Type = new CodeableConcept(Systems.CONTAINER_TYPE, Guid.NewGuid().ToString())
                     }
@@ -142,7 +155,10 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.MIS_CASE_IDENTIFIER, Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    {
+                        Assigner = FhirHelper.CreateReference(orderOrganization)
+                    }
                 },
                 Type = new List<CodeableConcept>
                 {
@@ -266,7 +282,10 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.MIS_IDENTIFIER, Guid.NewGuid().ToString()),
+                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    {
+                        Assigner = FhirHelper.CreateReference(orderOrganization)
+                    },
                 },
                 Date = DateTime.Today.ToString(CultureInfo.CurrentCulture),
                 When = new Order.OrderWhenComponent
@@ -381,9 +400,18 @@ namespace Lis.Test.Integration.Common
 
         static void ClearTable<T>() where T : Resource, new()
         {
-            var response = FhirClient.Search<T>();
-            foreach (var component in response.Entry)
-                FhirClient.Delete(component.Resource);
+            Console.WriteLine("Deleting {0}", typeof(T));
+            var api = new Fhirbase.Net.Api.FHIRbaseApi();
+            var type = new T().ResourceType.ToString();
+            while (true)
+            {
+                var response = api.Search(type, new SearchParameters());
+                if (!response.Entry.Any())
+                    break;
+
+                foreach (var component in response.Entry)
+                    api.Delete(component.Resource);
+            }
         }
 
         public static Specimen SpecimenByBarcode(string specimenBarcode)
@@ -428,7 +456,7 @@ namespace Lis.Test.Integration.Common
                 Comments = "Комментарии",
                 Issued = DateTime.Now,
                 Status = Observation.ObservationStatus.Final,
-                Method = new CodeableConcept(Systems.OBSERVATION_METHOD, Guid.NewGuid().ToString()),
+                Method = new CodeableConcept(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString()),
                 Performer = new List<ResourceReference> { FhirHelper.CreateBundleReference(practitioner) },
                 ReferenceRange = new List<Observation.ObservationReferenceRangeComponent>
                 {
@@ -570,7 +598,7 @@ namespace Lis.Test.Integration.Common
         {
             return new OrderResponse
             {
-                Identifier = new List<Identifier> { new Identifier(Systems.LIS_IDENTIFIER, Guid.NewGuid().ToString()) },
+                Identifier = new List<Identifier> { new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString()) },
                 Request = FhirHelper.CreateReference(order),
                 Date = DateTime.Now.ToString(CultureInfo.CurrentCulture),
                 Who = order.Source,
@@ -586,7 +614,7 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.PRACTITIONER_IDENTIFIER, Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
                 },
                 Id = Guid.NewGuid().ToString(),
                 Name = new HumanName

@@ -239,3 +239,4 @@ D:\reps\lis-mis-test\bin\Debug\ja\Npgsql.resources.dll
 D:\reps\lis-mis-test\bin\Debug\zh-CN\Npgsql.resources.dll
 D:\reps\lis-mis-test\obj\Debug\Lis.Test.dll
 D:\reps\lis-mis-test\obj\Debug\Lis.Test.pdb
+D:\reps\lis-mis-test\obj\Debug\Lis.Test.csprojResolveAssemblyReference.cache

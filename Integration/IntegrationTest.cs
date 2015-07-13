@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace Lis.Test.Integration
 {
     [TestFixture]
-    class IntegrationTest
+    public class IntegrationTest
     {
         #region Infrastructure
 
