@@ -95,6 +95,8 @@
       <HintPath>packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -111,6 +113,12 @@
     <Compile Include="IemkProxyCoded.cs" />
     <Compile Include="Integration\StatusTest.cs" />
     <Compile Include="Integration\Common\Systems.cs" />
+    <Compile Include="Integration\Terminology\IPostgresTerm.cs" />
+    <Compile Include="Integration\Terminology\PostgresHelper.cs" />
+    <Compile Include="Integration\Terminology\PostgresTerm.cs" />
+    <Compile Include="Integration\Terminology\PostgresTerminology.cs" />
+    <Compile Include="Integration\Terminology\PostresException.cs" />
+    <Compile Include="Integration\Terminology\TerminologyDictionaryItem.cs" />
     <Compile Include="IpResolver.cs" />
     <Compile Include="FhirbaseApiTest.cs" />
     <Compile Include="Integration\Common\FhirResourceHelper.cs" />

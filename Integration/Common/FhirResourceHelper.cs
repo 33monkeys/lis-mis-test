@@ -7,11 +7,13 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Xml;
+using Fhirbase.Net.Api;
 using Fhirbase.Net.SearchHelpers;
 using FhirNetApiExtension;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Rest;
 using Hl7.Fhir.Serialization;
+using Lis.Test.Integration.Terminology;
 using NUnit.Framework;
 using Monads.NET;
 using RestSharp;
@@ -22,16 +24,24 @@ namespace Lis.Test.Integration.Common
     {
         public static N3FhirClient FhirClient { get; set; }
 
+        public static IPostgresTerm PostgresTerm { get; set; }
+
         static FhirResourceHelper()
         {
             FhirClient = new N3FhirClient(Constants.Endpoint, new N3Credentials(Constants.TestToken));
+            PostgresTerm = new PostgresTerm();
+        }
+
+        public static string GetCodeBySystem(string system)
+        {
+            return PostgresTerm.Search(system, null).Select(x => x.Code).First();
         }
 
         public static Patient CreatePatient()
         {
             var patient = new Patient
             {
-                Identifier = new List<Identifier>{new Identifier(Systems.PATIENT_PASSPORT, "165516")
+                Identifier = new List<Identifier>{new Identifier(Systems.PATIENT_PASSPORT, GetCodeBySystem(Systems.PATIENT_PASSPORT))
                 {
                     Assigner = new ResourceReference
                     {
@@ -58,7 +68,7 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS))
                     {
                         Assigner = FhirHelper.CreateReference(orderOrganization)
                     }
@@ -73,10 +83,10 @@ namespace Lis.Test.Integration.Common
                     new Practitioner.PractitionerPractitionerRoleComponent
                     {
                         ManagingOrganization = FhirHelper.CreateReference(orderOrganization),
-                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, "27"),
+                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, GetCodeBySystem(Systems.PRACTITIONER_ROLE)),
                         Specialty = new List<CodeableConcept>
                         {
-                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, "14")
+                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, GetCodeBySystem(Systems.PRACTITIONER_SPECIALITY))
                         }
                     }
                 }
@@ -115,7 +125,7 @@ namespace Lis.Test.Integration.Common
                     {
                         Identifier = new List<Identifier>
                         {
-                            new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                            new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS))
                             {
                                 Assigner = FhirHelper.CreateReference(orderOrganization)
                             }
@@ -136,12 +146,12 @@ namespace Lis.Test.Integration.Common
                 Id = Guid.NewGuid().ToString(),
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.MES, Guid.NewGuid().ToString())
+                    new Identifier(Systems.MES, GetCodeBySystem(Systems.MES))
                 },
                 Patient = FhirHelper.CreateReference(patient),
                 DateAsserted = DateTime.Now.ToString(CultureInfo.CurrentCulture),
-                Code = new CodeableConcept(Systems.MKB10, Guid.NewGuid().ToString()),
-                Category = new CodeableConcept(Systems.CONDITION_CATEGORY, Guid.NewGuid().ToString()),
+                Code = new CodeableConcept(Systems.MKB10, GetCodeBySystem(Systems.MKB10)),
+                Category = new CodeableConcept(Systems.CONDITION_CATEGORY, GetCodeBySystem(Systems.CONDITION_CATEGORY)),
                 ClinicalStatus = Condition.ConditionClinicalStatus.Confirmed,
                 Notes = "Condition notes",
             };
@@ -155,14 +165,14 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS))
                     {
                         Assigner = FhirHelper.CreateReference(orderOrganization)
                     }
                 },
                 Type = new List<CodeableConcept>
                 {
-                    new CodeableConcept(Systems.ENCOUNTER_TYPE, Guid.NewGuid().ToString())
+                    new CodeableConcept(Systems.ENCOUNTER_TYPE, GetCodeBySystem(Systems.ENCOUNTER_TYPE))
                 },
                 Class = Encounter.EncounterClass.Outpatient,
                 Status = Encounter.EncounterState.Arrived,
@@ -170,7 +180,7 @@ namespace Lis.Test.Integration.Common
                 Indication = new List<ResourceReference> {new ResourceReference{Reference = condition.Id}},
                 Reason = new List<CodeableConcept>
                 {
-                    new CodeableConcept(Systems.REASON_CODE, Guid.NewGuid().ToString())
+                    new CodeableConcept(Systems.REASON_CODE, GetCodeBySystem(Systems.REASON_CODE))
                 },
                 ServiceProvider = FhirHelper.CreateReference(orderOrganization),
             };
@@ -184,7 +194,7 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier("http://netrika", Guid.NewGuid().ToString()),
+                    new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS)),
                 }
             };
             return FhirClient.Create(organization);
@@ -221,11 +231,11 @@ namespace Lis.Test.Integration.Common
                             Text = "Услуга 1",
                             Coding = new List<Coding>
                             {
-                                new Coding(Systems.DIAGNOSTIC_ORDER_CODE, Guid.NewGuid().ToString()),
+                                new Coding(Systems.DIAGNOSTIC_ORDER_CODE, Systems.DIAGNOSTIC_ORDER_CODE),
                             },
                             Extension = new List<Extension>
                             {
-                                new Extension(Systems.DIAGNOSTIC_ORDER_FINANCIAL_EXTENSION, new CodeableConcept(Systems.FINANCIAL, Guid.NewGuid().ToString())),
+                                new Extension(Systems.DIAGNOSTIC_ORDER_FINANCIAL_EXTENSION, new CodeableConcept(Systems.FINANCIAL, GetCodeBySystem(Systems.FINANCIAL))),
                                 new Extension(Systems.DIAGNOSTIC_ORDER_INSURANCE_EXTENSION, new ResourceReference{Reference = Guid.NewGuid().ToString()})
                             }
                         },
@@ -241,7 +251,7 @@ namespace Lis.Test.Integration.Common
                             },
                             Extension = new List<Extension>
                             {
-                                new Extension(Systems.DIAGNOSTIC_ORDER_FINANCIAL_EXTENSION, new CodeableConcept(Systems.FINANCIAL, Guid.NewGuid().ToString())),
+                                new Extension(Systems.DIAGNOSTIC_ORDER_FINANCIAL_EXTENSION, new CodeableConcept(Systems.FINANCIAL, GetCodeBySystem(Systems.FINANCIAL))),
                                 new Extension(Systems.DIAGNOSTIC_ORDER_INSURANCE_EXTENSION, new ResourceReference{Reference = Guid.NewGuid().ToString()})
                             }
                         },
@@ -257,7 +267,7 @@ namespace Lis.Test.Integration.Common
             var observation = new Observation
             {
                 Id = Guid.NewGuid().ToString(),
-                Code = new CodeableConcept(Systems.OBSERVATION_NAME, Guid.NewGuid().ToString()),
+                Code = new CodeableConcept(Systems.OBSERVATION_NAME, GetCodeBySystem(Systems.OBSERVATION_NAME)),
                 Status = Observation.ObservationStatus.Final,
                 Value = new Quantity
                 {
@@ -267,7 +277,7 @@ namespace Lis.Test.Integration.Common
                 {
                     new Observation.ObservationReferenceRangeComponent
                     {
-                        Text = "dkjflskdj",
+                        Text = "Test text",
                     }
                 }
             };
@@ -282,7 +292,7 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS))
                     {
                         Assigner = FhirHelper.CreateReference(orderOrganization)
                     },
@@ -294,7 +304,7 @@ namespace Lis.Test.Integration.Common
                     {
                         Coding = new List<Coding>
                         {
-                            new Coding(Systems.PRIORIRY, Guid.NewGuid().ToString())
+                            new Coding(Systems.PRIORIRY, GetCodeBySystem(Systems.PRIORIRY))
                         }
                     }
                 },
@@ -456,7 +466,7 @@ namespace Lis.Test.Integration.Common
                 Comments = "Комментарии",
                 Issued = DateTime.Now,
                 Status = Observation.ObservationStatus.Final,
-                Method = new CodeableConcept(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString()),
+                Method = new CodeableConcept(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS)),
                 Performer = new List<ResourceReference> { FhirHelper.CreateBundleReference(practitioner) },
                 ReferenceRange = new List<Observation.ObservationReferenceRangeComponent>
                 {
@@ -475,7 +485,7 @@ namespace Lis.Test.Integration.Common
             return new DiagnosticReport
             {
                 Id = Guid.NewGuid().ToString(),
-                Name = new CodeableConcept(Systems.DIAGNOSTIC_REPORT_CODE, Guid.NewGuid().ToString()),
+                Name = new CodeableConcept(Systems.DIAGNOSTIC_REPORT_CODE, GetCodeBySystem(Systems.DIAGNOSTIC_ORDER_CODE)),
                 Status = DiagnosticReport.DiagnosticReportStatus.Final,
                 Issued = DateTime.Today.AddDays(-1).ToString(CultureInfo.CurrentCulture),
                 Subject = orderSubject,
@@ -598,7 +608,7 @@ namespace Lis.Test.Integration.Common
         {
             return new OrderResponse
             {
-                Identifier = new List<Identifier> { new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString()) },
+                Identifier = new List<Identifier> { new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS)) },
                 Request = FhirHelper.CreateReference(order),
                 Date = DateTime.Now.ToString(CultureInfo.CurrentCulture),
                 Who = order.Source,
@@ -614,7 +624,7 @@ namespace Lis.Test.Integration.Common
             {
                 Identifier = new List<Identifier>
                 {
-                    new Identifier(Systems.ORGANIZATIONS.First(), Guid.NewGuid().ToString())
+                    new Identifier(Systems.ORGANIZATIONS, GetCodeBySystem(Systems.ORGANIZATIONS))
                 },
                 Id = Guid.NewGuid().ToString(),
                 Name = new HumanName
@@ -627,10 +637,10 @@ namespace Lis.Test.Integration.Common
                     new Practitioner.PractitionerPractitionerRoleComponent
                     {
                         ManagingOrganization = orderOrganization,
-                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, Guid.NewGuid().ToString()),
+                        Role = new CodeableConcept(Systems.PRACTITIONER_ROLE, GetCodeBySystem(Systems.PRACTITIONER_ROLE)),
                         Specialty = new List<CodeableConcept>
                         {
-                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, Guid.NewGuid().ToString())
+                            new CodeableConcept(Systems.PRACTITIONER_SPECIALITY, GetCodeBySystem(Systems.PRACTITIONER_SPECIALITY))
                         }
                     }
                 }
